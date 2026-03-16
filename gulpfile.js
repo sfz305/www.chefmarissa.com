@@ -41,7 +41,7 @@ const CANVAS_SRC = (function ()
 	if (flag) return flag.split('=').slice(1).join('=');
 	return path.resolve(
 		__dirname,
-		'../Purchased Software/themeforest-k0KRh5qD-canvas-the-multipurpose-html5-template/Package-HTML/Canvas 7 Files'
+		'../../Purchased Software/themeforest-k0KRh5qD-canvas-the-multipurpose-html5-template/Package-HTML/Canvas 7 Files'
 	);
 }());
 

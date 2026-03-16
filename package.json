@@ -9,7 +9,10 @@
 		"serve": "gulp serve",
 		"setup": "gulp setup",
 		"clean": "gulp clean",
-		"scss": "gulp scss"
+		"scss": "gulp scss",
+		"demo:1": "browser-sync start --server --startPath /demo-1-elegant.html --no-notify",
+		"demo:2": "browser-sync start --server --startPath /demo-2-fresh.html --no-notify",
+		"demo:3": "browser-sync start --server --startPath /demo-3-modern.html --no-notify"
 	},
 	"devDependencies": {
 		"autoprefixer": "^10.4.14",
@@ -29,6 +32,6 @@
 	"license": "ISC",
 	"repository": {
 		"type": "git",
-		"url": "https://github.com/sfz305/canvas-html.git"
+		"url": "https://github.com/sfz305/www.chefmarissa.com.git"
 	}
 }

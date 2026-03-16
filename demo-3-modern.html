@@ -1,0 +1,907 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en-US">
+
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8">
+		<meta http-equiv="x-ua-compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="description" content="Chef Marissa Mueller — Private Chef | Miami Beach, FL">
+
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,300;0,400;0,700;0,900;1,700&family=Barlow:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+
+		<!-- Canvas vendor CSS (populated via: npm run setup) -->
+		<link rel="stylesheet" href="vendor/style.css">
+		<link rel="stylesheet" href="vendor/css/font-icons.css">
+		<link rel="stylesheet" href="vendor/css/swiper.css">
+
+		<title>Chef Marissa — Demo 3: Modern Bold</title>
+
+		<style>
+			/* ── Design tokens ─────────────────────────────────────────── */
+			:root {
+				--cnvs-themecolor: #e63946;
+				--cnvs-themecolor-rgb: 230, 57, 70;
+				--red: #e63946;
+				--black: #0d0d0d;
+				--off-w: #f5f5f5;
+				--mid: #1a1a1a;
+				--text: #888;
+				--hf: 'Barlow Condensed', sans-serif;
+				--bf: 'Barlow', sans-serif;
+			}
+
+			/* ── Reset / Base ── */
+			*,
+			*::before,
+			*::after {
+				box-sizing: border-box;
+			}
+
+			html {
+				scroll-behavior: auto;
+			}
+
+			body {
+				font-family: var(--bf);
+				background: var(--off-w);
+				color: #333;
+				overflow-x: hidden;
+			}
+
+			/* ── Header ── */
+			#header {
+				background: transparent !important;
+			}
+
+			#header-wrap {
+				border-bottom: none !important;
+			}
+
+			.logo-bold {
+				font-family: var(--hf);
+				font-size: 1.3125rem;
+				font-weight: 900;
+				text-transform: uppercase;
+				letter-spacing: 3px;
+				color: #fff;
+				text-decoration: none;
+			}
+
+			.logo-bold .slash {
+				color: var(--red);
+				margin: 0 4px;
+			}
+
+			.sticky-header .logo-bold {
+				color: var(--black);
+			}
+
+			/* default hamburger lines → white on dark hero */
+			.cnvs-hamburger-inner,
+			.cnvs-hamburger-inner::before,
+			.cnvs-hamburger-inner::after {
+				background-color: #fff;
+			}
+
+			.sticky-header .cnvs-hamburger-inner,
+			.sticky-header .cnvs-hamburger-inner::before,
+			.sticky-header .cnvs-hamburger-inner::after {
+				background-color: var(--black);
+			}
+
+			/* ── Hero ── */
+			#slider {
+				background: var(--black);
+				position: relative;
+			}
+
+			.hero-bg {
+				position: absolute;
+				inset: 0;
+				background-image: url('images/hero-modern.jpg');
+				background-size: cover;
+				background-position: center;
+				opacity: .35;
+				z-index: 0;
+			}
+
+			.hero-content {
+				position: relative;
+				z-index: 5;
+				padding: 180px 0 120px;
+			}
+
+			.hero-eyebrow {
+				font-family: var(--hf);
+				font-size: .875rem;
+				font-weight: 400;
+				text-transform: uppercase;
+				letter-spacing: 5px;
+				color: var(--red);
+				margin-bottom: 20px;
+				display: flex;
+				align-items: center;
+				gap: 14px;
+			}
+
+			.hero-eyebrow::before {
+				content: '';
+				display: inline-block;
+				width: 40px;
+				height: 2px;
+				background: var(--red);
+			}
+
+			.hero-h1 {
+				font-family: var(--hf);
+				font-size: clamp(3.5rem, 8.5vw, 8.5rem);
+				font-weight: 900;
+				text-transform: uppercase;
+				line-height: .95;
+				color: #fff;
+				letter-spacing: -1px;
+				margin-bottom: 40px;
+			}
+
+			.hero-h1 .accent {
+				display: inline;
+				color: #fff;
+				-webkit-text-stroke: 1px rgba(255, 255, 255, .25);
+				color: transparent;
+			}
+
+			.hero-h1 .red-line {
+				text-decoration: underline;
+				text-decoration-color: var(--red);
+				text-decoration-thickness: 5px;
+				text-underline-offset: 8px;
+				color: #fff;
+			}
+
+			.hero-ctas {
+				display: flex;
+				flex-wrap: wrap;
+				gap: 16px;
+				align-items: center;
+			}
+
+			.btn-red {
+				display: inline-block;
+				background: var(--red);
+				color: #fff;
+				font-family: var(--hf);
+				font-weight: 700;
+				font-size: 1rem;
+				text-transform: uppercase;
+				letter-spacing: 2px;
+				padding: 15px 42px;
+				text-decoration: none;
+				transition: background .25s;
+			}
+
+			.btn-red:hover {
+				background: #c62633;
+				color: #fff;
+			}
+
+			.btn-red-ghost {
+				display: inline-block;
+				color: #fff;
+				font-family: var(--hf);
+				font-weight: 700;
+				font-size: 1rem;
+				text-transform: uppercase;
+				letter-spacing: 2px;
+				padding: 14px 42px;
+				border: 2px solid rgba(255, 255, 255, .3);
+				text-decoration: none;
+				transition: border-color .25s;
+			}
+
+			.btn-red-ghost:hover {
+				border-color: #fff;
+				color: #fff;
+			}
+
+			.hero-scroll-hint {
+				position: absolute;
+				bottom: 40px;
+				left: 50%;
+				transform: translateX(-50%);
+				z-index: 5;
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+				gap: 8px;
+				color: rgba(255, 255, 255, .35);
+				font-family: var(--hf);
+				font-size: .6875rem;
+				text-transform: uppercase;
+				letter-spacing: 3px;
+			}
+
+			.hero-scroll-hint::after {
+				content: '';
+				display: block;
+				width: 1px;
+				height: 40px;
+				background: rgba(255, 255, 255, .2);
+			}
+
+			/* ── Page section ── */
+			.page-section {
+				padding: 100px 0;
+			}
+
+			@media(max-width:767.98px) {
+				.page-section {
+					padding: 60px 0;
+				}
+			}
+
+			/* ── About ── */
+			#section-about {
+				background: var(--black);
+			}
+
+			.about-eyebrow {
+				font-family: var(--hf);
+				font-size: .75rem;
+				font-weight: 700;
+				text-transform: uppercase;
+				letter-spacing: 4px;
+				color: var(--red);
+				margin-bottom: 24px;
+			}
+
+			.about-h2 {
+				font-family: var(--hf);
+				font-size: clamp(2.5rem, 5vw, 5rem);
+				font-weight: 900;
+				text-transform: uppercase;
+				line-height: 1;
+				letter-spacing: -1px;
+				color: #fff;
+				margin-bottom: 32px;
+			}
+
+			.about-body {
+				font-size: 1rem;
+				font-weight: 300;
+				color: rgba(255, 255, 255, .55);
+				line-height: 1.85;
+				border-left: 3px solid var(--red);
+				padding-left: 24px;
+				max-width: 480px;
+			}
+
+			.stat-block {
+				margin-top: 56px;
+			}
+
+			.stat-item {
+				border-top: 1px solid rgba(255, 255, 255, .08);
+				padding: 24px 0;
+			}
+
+			.stat-item:last-child {
+				border-bottom: 1px solid rgba(255, 255, 255, .08);
+			}
+
+			.stat-num {
+				font-family: var(--hf);
+				font-size: clamp(2.5rem, 4vw, 4rem);
+				font-weight: 900;
+				color: var(--red);
+				line-height: 1;
+			}
+
+			.stat-label {
+				font-family: var(--hf);
+				font-size: .75rem;
+				text-transform: uppercase;
+				letter-spacing: 3px;
+				color: rgba(255, 255, 255, .35);
+				margin-top: 4px;
+			}
+
+			/* ── Services ── */
+			#section-services {
+				background: var(--off-w);
+			}
+
+			.svc-num-badge {
+				font-family: var(--hf);
+				font-size: 5rem;
+				font-weight: 900;
+				color: rgba(0, 0, 0, .06);
+				line-height: 1;
+				margin-bottom: -12px;
+			}
+
+			.svc-card {
+				padding: 56px 48px;
+				border-top: 1px solid rgba(0, 0, 0, .08);
+			}
+
+			.svc-card:last-child {
+				border-bottom: 1px solid rgba(0, 0, 0, .08);
+			}
+
+			.svc-card-inner {
+				max-width: 760px;
+			}
+
+			.svc-title {
+				font-family: var(--hf);
+				font-size: clamp(2rem, 4vw, 3.5rem);
+				font-weight: 700;
+				text-transform: uppercase;
+				letter-spacing: -0.5px;
+				color: var(--black);
+				line-height: 1;
+				margin-bottom: 16px;
+			}
+
+			.svc-title .svc-title-accent {
+				color: var(--red);
+			}
+
+			.svc-desc {
+				font-size: 1rem;
+				font-weight: 300;
+				color: #666;
+				line-height: 1.8;
+				max-width: 560px;
+			}
+
+			.svc-arrow {
+				display: inline-flex;
+				align-items: center;
+				gap: 10px;
+				font-family: var(--hf);
+				font-weight: 700;
+				font-size: .875rem;
+				text-transform: uppercase;
+				letter-spacing: 2px;
+				color: var(--red);
+				margin-top: 20px;
+				text-decoration: none;
+			}
+
+			.svc-arrow i {
+				font-size: 1.25rem;
+			}
+
+			/* ── Gallery ── */
+			#section-gallery {
+				background: var(--black);
+				padding-bottom: 0;
+			}
+
+			.gallery-header {
+				padding-bottom: 60px;
+			}
+
+			.gallery-eyebrow {
+				font-family: var(--hf);
+				font-size: .75rem;
+				text-transform: uppercase;
+				letter-spacing: 4px;
+				color: var(--red);
+				margin-bottom: 12px;
+			}
+
+			.gallery-h2 {
+				font-family: var(--hf);
+				font-size: clamp(2.5rem, 5vw, 5rem);
+				font-weight: 900;
+				text-transform: uppercase;
+				letter-spacing: -1px;
+				color: #fff;
+				line-height: 1;
+			}
+
+			.gallery-grid-asym {
+				display: grid;
+				grid-template-columns: repeat(3, 1fr);
+				grid-template-rows: auto;
+				gap: 4px;
+			}
+
+			.gallery-grid-asym .g-main {
+				grid-column: 1 / 3;
+				grid-row: 1 / 3;
+			}
+
+			.gallery-grid-asym img {
+				width: 100%;
+				height: 280px;
+				object-fit: cover;
+				display: block;
+				transition: filter .4s ease;
+				filter: grayscale(20%);
+			}
+
+			.gallery-grid-asym .g-main img {
+				height: 564px;
+			}
+
+			.gallery-grid-asym img:hover {
+				filter: grayscale(0%);
+			}
+
+			@media(max-width:767.98px) {
+				.gallery-grid-asym {
+					grid-template-columns: 1fr 1fr;
+				}
+
+				.gallery-grid-asym .g-main {
+					grid-column: 1 / 3;
+					grid-row: auto;
+				}
+
+				.gallery-grid-asym .g-main img {
+					height: 260px;
+				}
+
+				.gallery-grid-asym img {
+					height: 200px;
+				}
+			}
+
+			/* ── Testimonials ── */
+			#section-testimonials {
+				background: var(--mid);
+			}
+
+			.testi-band-h2 {
+				font-family: var(--hf);
+				font-size: clamp(2rem, 4vw, 3.5rem);
+				font-weight: 900;
+				text-transform: uppercase;
+				color: #fff;
+				letter-spacing: -0.5px;
+			}
+
+			.testi-sep {
+				width: 1px;
+				height: 100%;
+				background: rgba(255, 255, 255, .1);
+				min-height: 80px;
+			}
+
+			.testi-quote-text {
+				font-family: var(--bf);
+				font-style: italic;
+				font-size: 1rem;
+				font-weight: 300;
+				line-height: 1.85;
+				color: rgba(255, 255, 255, .65);
+			}
+
+			.testi-author {
+				font-family: var(--hf);
+				font-size: .75rem;
+				text-transform: uppercase;
+				letter-spacing: 3px;
+				color: var(--red);
+				margin-top: 12px;
+			}
+
+			/* ── Contact ── */
+			#section-contact {
+				background: var(--black);
+			}
+
+			.cta-h2 {
+				font-family: var(--hf);
+				font-size: clamp(2.5rem, 6vw, 6rem);
+				font-weight: 900;
+				text-transform: uppercase;
+				letter-spacing: -1.5px;
+				line-height: .95;
+				color: #fff;
+			}
+
+			.cta-h2 .hollow {
+				-webkit-text-stroke: 1px rgba(255, 255, 255, .3);
+				color: transparent;
+			}
+
+			.cta-sub {
+				font-size: 1rem;
+				font-weight: 300;
+				color: rgba(255, 255, 255, .45);
+				line-height: 1.8;
+				margin: 28px 0 40px;
+				max-width: 420px;
+			}
+
+			.form-field-bold {
+				background: transparent;
+				border: none;
+				border-bottom: 1px solid rgba(255, 255, 255, .15);
+				color: #fff;
+				font-family: var(--bf);
+				font-size: 1rem;
+				font-weight: 300;
+				padding: 16px 0;
+				width: 100%;
+				outline: none;
+				transition: border-color .25s;
+			}
+
+			.form-field-bold::placeholder {
+				color: rgba(255, 255, 255, .3);
+			}
+
+			.form-field-bold:focus {
+				border-bottom-color: var(--red);
+			}
+
+			.form-row {
+				margin-bottom: 8px;
+			}
+
+			/* ── Footer ── */
+			#footer {
+				background: #000 !important;
+			}
+
+			#footer #copyrights {
+				padding: 24px 0;
+				border-top: 1px solid rgba(255, 255, 255, .05);
+			}
+
+			.footer-logo {
+				font-family: var(--hf);
+				font-size: 1.125rem;
+				font-weight: 900;
+				text-transform: uppercase;
+				letter-spacing: 4px;
+				color: rgba(255, 255, 255, .4);
+			}
+		</style>
+	</head>
+
+	<body class="stretched">
+		<div id="wrapper">
+
+			<!-- ══════════════════════════ HEADER ══════════════════════════ -->
+			<header id="header" class="transparent-header full-header">
+				<div id="header-wrap">
+					<div class="container">
+						<div class="header-row">
+							<div id="logo">
+								<a href="#home" class="logo-bold">Chef<span class="slash">/</span>Marissa</a>
+							</div>
+							<div class="primary-menu-trigger">
+								<button class="cnvs-hamburger" type="button" title="Open Mobile Menu">
+									<span class="cnvs-hamburger-box"><span class="cnvs-hamburger-inner"></span></span>
+								</button>
+							</div>
+							<nav class="primary-menu" style="--cnvs-primary-menu-color:#fff;">
+								<ul class="menu-container one-page-menu" data-easing="easeInOutExpo" data-speed="1250" data-offset="70">
+									<li class="menu-item"><a class="menu-link" href="#" data-href="#home">
+											<div>Home</div>
+										</a></li>
+									<li class="menu-item"><a class="menu-link" href="#" data-href="#section-about">
+											<div>About</div>
+										</a></li>
+									<li class="menu-item"><a class="menu-link" href="#" data-href="#section-services">
+											<div>Services</div>
+										</a></li>
+									<li class="menu-item"><a class="menu-link" href="#" data-href="#section-gallery">
+											<div>Gallery</div>
+										</a></li>
+									<li class="menu-item"><a class="menu-link" href="#" data-href="#section-contact">
+											<div>Contact</div>
+										</a></li>
+								</ul>
+							</nav>
+						</div>
+					</div>
+				</div>
+			</header>
+
+			<!-- ══════════════════════════ HERO ══════════════════════════ -->
+			<div id="home" style="position:absolute;top:0;left:0;width:100%;height:200px;z-index:-2;"></div>
+			<section id="slider" class="slider-element min-vh-100 include-header dark">
+				<div class="hero-bg" role="presentation"></div>
+				<div class="slider-inner">
+					<div class="vertical-middle">
+						<div class="container">
+							<div class="hero-content">
+								<p class="hero-eyebrow">Miami Beach, FL &mdash; Available Worldwide</p>
+								<h1 class="hero-h1">
+									Your<br>
+									<span class="red-line">Private</span><br>
+									Chef.
+								</h1>
+								<div class="hero-ctas">
+									<a href="#section-contact" class="btn-red" data-scrollto="#section-contact" data-easing="easeInOutExpo" data-speed="1250" data-offset="70">
+										Book Now
+									</a>
+									<a href="#section-about" class="btn-red-ghost" data-scrollto="#section-about" data-easing="easeInOutExpo" data-speed="1250" data-offset="70">
+										Learn More
+									</a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="hero-scroll-hint">Scroll</div>
+			</section>
+
+			<!-- ══════════════════════════ CONTENT ══════════════════════════ -->
+			<section id="content">
+				<div class="content-wrap p-0">
+
+					<!-- ── ABOUT ── -->
+					<section id="section-about" class="page-section">
+						<div class="container">
+							<div class="row align-items-start g-5">
+								<div class="col-lg-6">
+									<p class="about-eyebrow">Who is Chef Marissa</p>
+									<h2 class="about-h2">Flavor<br>Without<br>Compromise.</h2>
+									<p class="about-body">
+										Marissa Mueller is a Miami Beach-based traveling private chef with a decade of experience designing bespoke culinary experiences. From luxury residences in the Keys to destination events across the country, she brings precision, creativity, and a personal touch to every table.
+									</p>
+								</div>
+								<div class="col-lg-5 offset-lg-1">
+									<img src="images/chef-portrait.jpg" alt="Chef Marissa" style="width:100%; height:440px; object-fit:cover; object-position:center top; filter:grayscale(15%);" onerror="this.src='https://placehold.co/500x440/1a1a1a/e63946?text=Chef+Marissa'">
+									<div class="stat-block">
+										<div class="row stat-item">
+											<div class="col-4">
+												<div class="stat-num">10+</div>
+												<div class="stat-label">Years Active</div>
+											</div>
+											<div class="col-4">
+												<div class="stat-num">200+</div>
+												<div class="stat-label">Events Done</div>
+											</div>
+											<div class="col-4">
+												<div class="stat-num">3</div>
+												<div class="stat-label">Services</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</section>
+
+					<!-- ── SERVICES ── -->
+					<section id="section-services" class="page-section">
+						<div class="container">
+							<h2 style="font-family:var(--hf); font-size:clamp(1.5rem,3vw,2.5rem); font-weight:700; text-transform:uppercase; letter-spacing:-0.5px; color:var(--black); margin-bottom:60px;">
+								What Chef Marissa Does
+							</h2>
+							<div class="svc-card">
+								<div class="svc-card-inner">
+									<div class="svc-num-badge">01</div>
+									<h3 class="svc-title">Traveling <span class="svc-title-accent">Private</span> Chef</h3>
+									<p class="svc-desc">
+										Full-service culinary support on the road. Available across the US and internationally for multi-day engagements at vacation homes, yachts, private retreats, and resort destinations. Marissa handles everything from sourcing to service.
+									</p>
+									<a href="#section-contact" class="svc-arrow" data-scrollto="#section-contact" data-easing="easeInOutExpo" data-speed="1250" data-offset="70">
+										Inquire <i class="uil uil-arrow-right"></i>
+									</a>
+								</div>
+							</div>
+							<div class="svc-card">
+								<div class="svc-card-inner">
+									<div class="svc-num-badge">02</div>
+									<h3 class="svc-title">In-Home <span class="svc-title-accent">Personal</span> Chef</h3>
+									<p class="svc-desc">
+										Weekly or recurring household service for clients in the Miami metro area. Custom menus based on your health goals, taste preferences, and household size. Fully prepped, packaged, and cleaned up. You simply eat.
+									</p>
+									<a href="#section-contact" class="svc-arrow" data-scrollto="#section-contact" data-easing="easeInOutExpo" data-speed="1250" data-offset="70">
+										Inquire <i class="uil uil-arrow-right"></i>
+									</a>
+								</div>
+							</div>
+							<div class="svc-card">
+								<div class="svc-card-inner">
+									<div class="svc-num-badge">03</div>
+									<h3 class="svc-title">Private <span class="svc-title-accent">Event</span> Catering</h3>
+									<p class="svc-desc">
+										From intimate dinner parties to polished corporate events. Custom multi-course menus, full kitchen and service coordination, seamless execution. Events that become stories.
+									</p>
+									<a href="#section-contact" class="svc-arrow" data-scrollto="#section-contact" data-easing="easeInOutExpo" data-speed="1250" data-offset="70">
+										Inquire <i class="uil uil-arrow-right"></i>
+									</a>
+								</div>
+							</div>
+						</div>
+					</section>
+
+					<!-- ── GALLERY ── -->
+					<section id="section-gallery" class="page-section">
+						<div class="container gallery-header">
+							<div class="d-flex justify-content-between align-items-end">
+								<div>
+									<p class="gallery-eyebrow">Portfolio</p>
+									<h2 class="gallery-h2">The<br>Work.</h2>
+								</div>
+								<a href="https://www.instagram.com/chefmarissa" target="_blank" rel="noopener noreferrer" style="font-family:var(--hf); font-size:.75rem; text-transform:uppercase; letter-spacing:3px; color:rgba(255,255,255,.4); text-decoration:none;">
+									@chefmarissa &nearr;
+								</a>
+							</div>
+						</div>
+						<div class="gallery-grid-asym">
+							<div class="g-main">
+								<img src="images/gallery/dish-1.jpg" alt="Featured dish" onerror="this.src='https://placehold.co/1200x564/1a1a1a/e63946?text=Signature+Dish'">
+							</div>
+							<div>
+								<img src="images/gallery/dish-2.jpg" alt="Plated dish" onerror="this.src='https://placehold.co/600x280/1a1a1a/888?text=Dish+2'">
+							</div>
+							<div>
+								<img src="images/gallery/dish-3.jpg" alt="Plated dish" onerror="this.src='https://placehold.co/600x280/1a1a1a/888?text=Dish+3'">
+							</div>
+							<div>
+								<img src="images/gallery/dish-4.jpg" alt="Plated dish" onerror="this.src='https://placehold.co/600x280/1a1a1a/888?text=Dish+4'">
+							</div>
+							<div>
+								<img src="images/gallery/dish-5.jpg" alt="Plated dish" onerror="this.src='https://placehold.co/600x280/1a1a1a/888?text=Dish+5'">
+							</div>
+							<div>
+								<img src="images/gallery/dish-6.jpg" alt="Plated dish" onerror="this.src='https://placehold.co/600x280/1a1a1a/888?text=Dish+6'">
+							</div>
+						</div>
+					</section>
+
+					<!-- ── TESTIMONIALS ── */
+			<section id="section-testimonials" class="page-section">
+				<div class="container">
+					<div class="row align-items-start g-5 mb-5">
+						<div class="col-lg-5">
+							<h2 class="testi-band-h2">Client<br>Voices.</h2>
+						</div>
+						<div class="col-lg-7">
+							<div class="testi-sep mb-4" style="width:100%; height:1px;"></div>
+							<div class="mb-5">
+								<p class="testi-quote-text">"Seven courses, perfectly executed, in our own dining room. Marissa understood our palate after one conversation and delivered something we'd never have found in a restaurant. Truly extraordinary."</p>
+								<p class="testi-author">— Jonathan &amp; Claire H. &mdash; Miami Beach</p>
+							</div>
+							<div class="testi-sep mb-4" style="width:100%; height:1px;"></div>
+							<div class="mb-5">
+								<p class="testi-quote-text">"Two weeks in Aspen — every morning, every dinner flawlessly done. She adapts completely to your needs and never once felt like a vendor. Felt like a guest who happened to cook brilliantly."</p>
+								<p class="testi-author">— The Whitmore Family &mdash; New York</p>
+							</div>
+							<div class="testi-sep mb-4" style="width:100%; height:1px;"></div>
+							<div>
+								<p class="testi-quote-text">"My dinner party is still the story people tell. Marissa's food doesn't just taste good — it says something. There's intention in every plate."</p>
+								<p class="testi-author">— Serena V. &mdash; South Beach</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<!-- ── CONTACT ── -->
+					<section id="section-contact" class="page-section">
+						<div class="container">
+							<div class="row align-items-start g-5">
+								<div class="col-lg-5">
+									<p style="font-family:var(--hf); font-size:.75rem; text-transform:uppercase; letter-spacing:4px; color:var(--red);">
+										Ready to Book?
+									</p>
+									<h2 class="cta-h2">
+										Let's<br>
+										<span class="hollow">Create</span><br>
+										Together.
+									</h2>
+									<p class="cta-sub">
+										Contact me for any of your culinary needs. I'm always available and ready to design something you'll never forget.
+									</p>
+									<div style="display:flex; gap:16px; flex-direction:column;">
+										<span style="font-family:var(--hf); font-size:.75rem; text-transform:uppercase; letter-spacing:3px; color:rgba(255,255,255,.35);">
+											Miami Beach, FL &mdash; Always Open
+										</span>
+										<a href="https://www.instagram.com/chefmarissa" target="_blank" rel="noopener noreferrer" style="font-family:var(--hf); font-size:.75rem; text-transform:uppercase; letter-spacing:3px; color:rgba(255,255,255,.35); text-decoration:none;">
+											Instagram: @chefmarissa
+										</a>
+										<a href="https://www.facebook.com/ChefMarissa21" target="_blank" rel="noopener noreferrer" style="font-family:var(--hf); font-size:.75rem; text-transform:uppercase; letter-spacing:3px; color:rgba(255,255,255,.35); text-decoration:none;">
+											Facebook: ChefMarissa21
+										</a>
+									</div>
+								</div>
+								<div class="col-lg-6 offset-lg-1">
+									<form id="contact-form-3" novalidate>
+										<div class="form-row">
+											<input type="text" class="form-field-bold" placeholder="Your Name" required autocomplete="name">
+										</div>
+										<div class="form-row">
+											<input type="email" class="form-field-bold" placeholder="Email Address" required autocomplete="email">
+										</div>
+										<div class="form-row">
+											<input type="tel" class="form-field-bold" placeholder="Phone (optional)" autocomplete="tel">
+										</div>
+										<div class="form-row">
+											<select class="form-field-bold" style="cursor:pointer;">
+												<option value="">Service of Interest</option>
+												<option>Traveling Private Chef</option>
+												<option>In-Home Personal Chef</option>
+												<option>Private Event Catering</option>
+												<option>General Inquiry</option>
+											</select>
+										</div>
+										<div class="form-row">
+											<textarea class="form-field-bold" rows="4" placeholder="Tell me about your vision..." required style="resize:none;"></textarea>
+										</div>
+										<div class="form-row" style="margin-top:24px;">
+											<button type="submit" class="btn-red" style="width:100%; cursor:pointer; font-family:var(--hf);">
+												Send Message &rarr;
+											</button>
+										</div>
+									</form>
+									<div id="contact-feedback-3" style="display:none; padding: 24px 0; font-family:var(--hf); font-size:1.5rem; font-weight:700; color:var(--red); text-transform:uppercase; letter-spacing:2px;">
+										Message received. I'll be in touch.
+									</div>
+								</div>
+							</div>
+						</div>
+					</section>
+
+				</div>
+			</section>
+
+			<!-- ══════════════════════════ FOOTER ══════════════════════════ -->
+			<footer id="footer" class="dark">
+				<div id="copyrights">
+					<div class="container">
+						<div class="row justify-content-between align-items-center">
+							<div class="col-md-6 text-center text-md-start">
+								<div class="footer-logo">Chef / Marissa</div>
+								<p class="mb-0 mt-1" style="font-size:.8125rem; color:rgba(255,255,255,.2); font-family:var(--hf); letter-spacing:2px; text-transform:uppercase;">
+									Miami Beach &mdash; Always Open
+								</p>
+							</div>
+							<div class="col-md-6 text-center text-md-end mt-3 mt-md-0">
+								<a href="https://www.instagram.com/chefmarissa" target="_blank" rel="noopener noreferrer" class="social-icon si-small si-instagram me-2" aria-label="@chefmarissa on Instagram">
+									<i class="uil uil-instagram"></i><i class="uil uil-instagram"></i>
+								</a>
+								<a href="https://www.facebook.com/ChefMarissa21" target="_blank" rel="noopener noreferrer" class="social-icon si-small si-facebook" aria-label="Chef Marissa on Facebook">
+									<i class="uil uil-facebook-f"></i><i class="uil uil-facebook-f"></i>
+								</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</footer>
+
+		</div><!-- #wrapper -->
+
+		<div id="gotoTop" class="uil uil-angle-up"></div>
+
+		<script src="vendor/js/plugins.min.js"></script>
+		<script src="vendor/js/functions.bundle.js"></script>
+		<script>
+			(function ()
+			{
+				'use strict';
+				var form = document.getElementById('contact-form-3');
+				var feedback = document.getElementById('contact-feedback-3');
+				if (form)
+				{
+					form.addEventListener('submit', function (e)
+					{
+						e.preventDefault();
+						var name = form.querySelector('[autocomplete="name"]').value.trim();
+						var email = form.querySelector('[autocomplete="email"]').value.trim();
+						var msg = form.querySelector('textarea').value.trim();
+						if (!name || !email || !msg) return;
+						form.style.display = 'none';
+						feedback.style.display = 'block';
+						// TODO: wire up to Formspree, Netlify Forms, or custom endpoint
+					});
+				}
+			}());
+		</script>
+	</body>
+
+</html>

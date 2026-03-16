@@ -1,0 +1,330 @@
+// =============================================================================
+// Canvas Single-Page Site — Custom Stylesheet
+// File: css/default.scss
+// Compiled to: css/default.css  (via `gulp scss` or `npm start`)
+//
+// This file augments and overrides the Canvas core (vendor/style.css).
+// Import order in HTML:
+//   1. vendor/style.css      ← Canvas core (Bootstrap + all components)
+//   2. vendor/css/font-icons.css
+//   3. vendor/css/swiper.css
+//   4. css/default.css       ← this file, compiled
+// =============================================================================
+
+// ─── 1. Custom Properties (override Canvas CSS variables) ──────────────────
+
+:root {
+	// Brand accent — change this one value to retheme the whole site
+	--cnvs-themecolor: #3d6ef5;
+	--cnvs-themecolor-rgb: 61, 110, 245;
+
+	// Typography
+	--site-heading-font: 'Playfair Display', Georgia, serif;
+	--site-body-font: 'Inter', system-ui, sans-serif;
+	--site-body-color: #4a4a5a;
+	--site-heading-color: #1a1a2e;
+
+	// Spacing
+	--section-padding-y: 90px;
+	--section-padding-y-sm: 60px;
+}
+
+// ─── 2. Base Typography ──────────────────────────────────────────────────────
+
+body {
+	font-family: var(--site-body-font);
+	color: var(--site-body-color);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	font-family: var(--site-heading-font);
+	color: var(--site-heading-color);
+}
+
+// ─── 3. Navigation / Header ─────────────────────────────────────────────────
+
+.logo-text {
+	font-family: var(--site-heading-font);
+	font-size: 1.625rem;
+	font-weight: 700;
+	color: #fff;
+	text-decoration: none;
+	letter-spacing: -0.5px;
+	transition: opacity 0.2s ease;
+
+	&:hover {
+		opacity: 0.85;
+		color: #fff;
+	}
+}
+
+// When header scrolls to a light background, darken the logo text
+#header.sticky-header .logo-text {
+	color: var(--site-heading-color);
+}
+
+// ─── 4. Hero / Slider ────────────────────────────────────────────────────────
+
+.slider-caption h2 {
+	font-size: clamp(2rem, 5vw, 3.75rem);
+	font-weight: 700;
+	line-height: 1.15;
+	letter-spacing: -1px;
+}
+
+.slider-caption p {
+	font-size: clamp(1rem, 2vw, 1.25rem);
+	font-weight: 300;
+	max-width: 560px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+// ─── 5. Global Section Styles ────────────────────────────────────────────────
+
+.page-section {
+	padding-top: var(--section-padding-y);
+	padding-bottom: var(--section-padding-y);
+
+	@media (max-width: 767.98px) {
+		padding-top: var(--section-padding-y-sm);
+		padding-bottom: var(--section-padding-y-sm);
+	}
+}
+
+.heading-block {
+	margin-bottom: 56px;
+
+	h2 {
+		font-size: clamp(1.875rem, 3.5vw, 2.75rem);
+		margin-bottom: 12px;
+
+		span {
+			color: var(--cnvs-themecolor);
+		}
+	}
+
+	>span {
+		font-size: 1.0625rem;
+		color: #888;
+		font-weight: 400;
+	}
+}
+
+// Alternate background for sections
+.bg-section-alt {
+	background-color: #f5f6fa;
+}
+
+// ─── 6. About Section ────────────────────────────────────────────────────────
+
+.rounded-custom {
+	border-radius: 16px;
+}
+
+.counter-value {
+	font-size: 2.75rem;
+	font-weight: 700;
+	color: var(--cnvs-themecolor);
+	line-height: 1.1;
+	margin-bottom: 4px;
+	font-family: var(--site-body-font);
+}
+
+.counter-label {
+	font-size: 0.875rem;
+	text-transform: uppercase;
+	letter-spacing: 0.5px;
+	color: #999;
+	font-weight: 500;
+}
+
+// ─── 7. Feature Boxes (Services) ─────────────────────────────────────────────
+
+.feature-box .fbox-icon i {
+	color: var(--cnvs-themecolor);
+}
+
+.feature-box.fbox-outline .fbox-icon::after {
+	border-color: rgba(var(--cnvs-themecolor-rgb), 0.3);
+}
+
+.feature-box:hover .fbox-icon i {
+	color: #fff;
+}
+
+.feature-box:hover .fbox-icon::after {
+	background-color: var(--cnvs-themecolor);
+}
+
+// ─── 8. Portfolio ────────────────────────────────────────────────────────────
+
+.portfolio-item {
+	.portfolio-img {
+		width: 100%;
+		height: 260px;
+		object-fit: cover;
+		transition: transform 0.45s ease;
+	}
+
+	.portfolio-image {
+		overflow: hidden;
+
+		&:hover .portfolio-img {
+			transform: scale(1.05);
+		}
+	}
+
+	.portfolio-overlay {
+		background: rgba(var(--cnvs-themecolor-rgb), 0.75);
+	}
+}
+
+// ─── 9. Testimonials ─────────────────────────────────────────────────────────
+
+.section-dark-bg {
+	background-color: #11122b;
+
+	.heading-block h2,
+	.heading-block>span {
+		color: rgba(255, 255, 255, 0.9);
+	}
+
+	.heading-block h2 span {
+		color: var(--cnvs-themecolor);
+	}
+}
+
+.testimonial-card {
+	background: rgba(255, 255, 255, 0.06);
+	border: 1px solid rgba(255, 255, 255, 0.1);
+	border-radius: 16px;
+	padding: 36px 32px;
+	height: 100%;
+	transition: transform 0.3s ease, border-color 0.3s ease;
+
+	&:hover {
+		transform: translateY(-4px);
+		border-color: rgba(var(--cnvs-themecolor-rgb), 0.4);
+	}
+
+	.testi-quote {
+		color: rgba(255, 255, 255, 0.82);
+		font-size: 1rem;
+		line-height: 1.75;
+		font-style: italic;
+		margin: 0;
+
+		&::before {
+			content: '\201C';
+			font-size: 2.5rem;
+			line-height: 0;
+			vertical-align: -0.6rem;
+			color: var(--cnvs-themecolor);
+			margin-right: 4px;
+			font-style: normal;
+		}
+	}
+
+	.testi-author {
+		h5 {
+			color: #fff;
+			font-size: 0.9375rem;
+			margin-bottom: 2px;
+			font-family: var(--site-body-font);
+			font-weight: 600;
+		}
+
+		span {
+			font-size: 0.8125rem;
+			color: rgba(255, 255, 255, 0.45);
+			letter-spacing: 0.3px;
+		}
+	}
+}
+
+// ─── 10. Contact Form ────────────────────────────────────────────────────────
+
+#section-contact {
+	.form-control {
+		border-radius: 8px;
+		border: 1px solid #dde1e9;
+		padding: 12px 16px;
+		font-size: 0.9375rem;
+		background: #fafbff;
+		transition: border-color 0.25s ease, box-shadow 0.25s ease;
+
+		&:focus {
+			border-color: var(--cnvs-themecolor);
+			box-shadow: 0 0 0 3px rgba(var(--cnvs-themecolor-rgb), 0.12);
+			background: #fff;
+		}
+	}
+
+	.form-label {
+		font-weight: 500;
+		font-size: 0.875rem;
+		color: var(--site-heading-color);
+
+		small {
+			color: var(--cnvs-themecolor);
+		}
+	}
+}
+
+.btn-submit-contact {
+	background-color: var(--cnvs-themecolor);
+	border-color: var(--cnvs-themecolor);
+	border-radius: 50px;
+	padding: 13px 36px;
+	font-size: 0.9375rem;
+	font-weight: 600;
+	letter-spacing: 0.3px;
+	transition: background-color 0.25s ease, transform 0.2s ease, box-shadow 0.25s ease;
+
+	&:hover,
+	&:focus {
+		background-color: #2855e8;
+		border-color: #2855e8;
+		transform: translateY(-2px);
+		box-shadow: 0 8px 24px rgba(var(--cnvs-themecolor-rgb), 0.35);
+	}
+}
+
+// Form feedback messages
+.form-feedback {
+	border-radius: 8px;
+	font-size: 0.9375rem;
+}
+
+// ─── 11. Footer ──────────────────────────────────────────────────────────────
+
+#footer.dark {
+	background-color: #0c0d1e;
+
+	#copyrights {
+		padding: 32px 0;
+		font-size: 0.875rem;
+		border-top: 1px solid rgba(255, 255, 255, 0.06);
+	}
+
+	.social-icon {
+		transition: transform 0.2s ease;
+
+		&:hover {
+			transform: translateY(-3px);
+		}
+	}
+}
+
+// ─── 12. Scroll-to-top button ────────────────────────────────────────────────
+
+#gotoTop {
+	background-color: var(--cnvs-themecolor);
+	border-radius: 50%;
+}

@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en-US">
+
+	<head>
+
+		<meta http-equiv="content-type" content="text/html; charset=utf-8">
+		<meta http-equiv="x-ua-compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="author" content="">
+		<meta name="description" content="A single-page website built on the Canvas HTML5 template framework.">
+
+		<!-- Google Fonts -->
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+
+		<!-- Canvas Core CSS -->
+		<link rel="stylesheet" href="vendor/style.css">
+		<link rel="stylesheet" href="vendor/css/font-icons.css">
+		<link rel="stylesheet" href="vendor/css/swiper.css">
+
+		<!-- Custom Styles (compiled from css/default.scss) -->
+		<link rel="stylesheet" href="css/default.css">
+
+		<!-- Document Title
+	============================================= -->
+		<title>Canvas | Single Page Website</title>
+
+	</head>
+
+	<body class="stretched">
+
+		<!-- Document Wrapper
+	============================================= -->
+		<div id="wrapper">
+
+			<!-- Home anchor (required for one-page scroll menu)
+		============================================= -->
+			<div id="home" class="page-section" style="position:absolute;top:0;left:0;width:100%;height:200px;z-index:-2;"></div>
+
+			<!-- Hero Slider
+		============================================= -->
+			<section id="slider" class="slider-element slider-parallax min-vh-60 min-vh-md-100 with-header swiper_wrapper">
+				<div class="slider-inner">
+					<div class="swiper swiper-parent">
+						<div class="swiper-wrapper">
+
+							<div class="swiper-slide dark">
+								<div class="container">
+									<div class="slider-caption slider-caption-center">
+										<h2 data-animate="fadeInUp">Welcome to MySite</h2>
+										<p class="d-none d-sm-block" data-animate="fadeInUp" data-delay="200">
+											A clean, professional one-page website built on the Canvas HTML5 template framework.
+										</p>
+										<a href="#section-about" class="btn btn-light button-rounded mt-4" data-animate="fadeInUp" data-delay="400">
+											Discover More <i class="uil uil-arrow-down ms-1"></i>
+										</a>
+									</div>
+								</div>
+								<div class="swiper-slide-bg" style="background-image: url('images/hero-bg.jpg');background-position:center center;"></div>
+								<div class="video-overlay" style="background-color:rgba(0,0,0,0.45);"></div>
+							</div>
+
+						</div>
+					</div>
+				</div>
+			</section><!-- #slider end -->
+
+			<!-- Header
+		============================================= -->
+			<header id="header" class="full-header transparent-header semi-transparent">
+				<div id="header-wrap">
+					<div class="container">
+						<div class="header-row">
+
+							<!-- Logo
+						============================================= -->
+							<div id="logo">
+								<a href="#home">
+									<span class="logo-text">MySite</span>
+								</a>
+							</div><!-- #logo end -->
+
+							<div class="primary-menu-trigger">
+								<button class="cnvs-hamburger" type="button" title="Open Mobile Menu">
+									<span class="cnvs-hamburger-box"><span class="cnvs-hamburger-inner"></span></span>
+								</button>
+							</div>
+
+							<!-- Primary Navigation
+						============================================= -->
+							<nav class="primary-menu">
+								<ul class="menu-container one-page-menu" data-easing="easeInOutExpo" data-speed="1250" data-offset="70">
+									<li class="menu-item"><a class="menu-link" href="#" data-href="#home">
+											<div>Home</div>
+										</a></li>
+									<li class="menu-item"><a class="menu-link" href="#" data-href="#section-about">
+											<div>About</div>
+										</a></li>
+									<li class="menu-item"><a class="menu-link" href="#" data-href="#section-services">
+											<div>Services</div>
+										</a></li>
+									<li class="menu-item"><a class="menu-link" href="#" data-href="#section-portfolio">
+											<div>Portfolio</div>
+										</a></li>
+									<li class="menu-item"><a class="menu-link" href="#" data-href="#section-testimonials">
+											<div>Testimonials</div>
+										</a></li>
+									<li class="menu-item"><a class="menu-link" href="#" data-href="#section-contact">
+											<div>Contact</div>
+										</a></li>
+								</ul>
+							</nav><!-- #primary-menu end -->
+
+						</div>
+					</div>
+				</div>
+				<div class="header-wrap-clone"></div>
+			</header><!-- #header end -->
+
+			<!-- Content
+		============================================= -->
+			<section id="content">
+				<div class="content-wrap p-0">
+
+					<!-- ============================================
+				     About Section
+				     ============================================ -->
+					<section id="section-about" class="page-section">
+						<div class="container">
+
+							<div class="heading-block text-center">
+								<h2>About <span>Us</span></h2>
+								<span>Who we are and what drives us forward</span>
+							</div>
+
+							<div class="row align-items-center col-mb-50">
+								<div class="col-lg-6">
+									<img src="images/about.jpg" alt="About Us" class="img-fluid rounded-custom shadow-sm">
+								</div>
+								<div class="col-lg-6">
+									<h3 class="mb-3">We build beautiful digital experiences.</h3>
+									<p class="mb-3 lead">We are a creative team passionate about crafting high-quality websites and digital solutions that help businesses grow and connect with their audience.</p>
+									<p>Our approach combines modern design principles with proven development practices to deliver results that are both visually stunning and technically sound.</p>
+
+									<div class="row mt-5">
+										<div class="col-6">
+											<div class="counter d-flex flex-column">
+												<h2 class="counter-value"><span data-from="0" data-to="150" data-refresh-interval="50" data-speed="2000" data-ease="easeOutCubic">0</span>+</h2>
+												<span class="counter-label">Projects Completed</span>
+											</div>
+										</div>
+										<div class="col-6">
+											<div class="counter d-flex flex-column">
+												<h2 class="counter-value"><span data-from="0" data-to="98" data-refresh-interval="50" data-speed="2000" data-ease="easeOutCubic">0</span>%</h2>
+												<span class="counter-label">Client Satisfaction</span>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+
+						</div>
+					</section><!-- #section-about end -->
+
+					<!-- ============================================
+				     Services Section
+				     ============================================ -->
+					<section id="section-services" class="page-section bg-section-alt">
+						<div class="container">
+
+							<div class="heading-block text-center">
+								<h2>Our <span>Services</span></h2>
+								<span>Everything you need to grow your digital presence</span>
+							</div>
+
+							<div class="row col-mb-50 justify-content-center">
+
+								<div class="col-sm-6 col-lg-4">
+									<div class="feature-box fbox-center fbox-outline fbox-rounded">
+										<div class="fbox-icon">
+											<a href="#"><i class="uil uil-vector-square"></i></a>
+										</div>
+										<div class="fbox-content">
+											<h3>Web Design</h3>
+											<p>Beautiful responsive designs that captivate your audience and reflect your brand identity.</p>
+										</div>
+									</div>
+								</div>
+
+								<div class="col-sm-6 col-lg-4">
+									<div class="feature-box fbox-center fbox-outline fbox-rounded">
+										<div class="fbox-icon">
+											<a href="#"><i class="uil uil-laptop-cloud"></i></a>
+										</div>
+										<div class="fbox-content">
+											<h3>Development</h3>
+											<p>Robust, scalable front-end and back-end solutions built with modern technologies.</p>
+										</div>
+									</div>
+								</div>
+
+								<div class="col-sm-6 col-lg-4">
+									<div class="feature-box fbox-center fbox-outline fbox-rounded">
+										<div class="fbox-icon">
+											<a href="#"><i class="uil uil-chart-line"></i></a>
+										</div>
+										<div class="fbox-content">
+											<h3>SEO &amp; Marketing</h3>
+											<p>Data-driven strategies to increase your visibility and grow your online presence.</p>
+										</div>
+									</div>
+								</div>
+
+								<div class="col-sm-6 col-lg-4">
+									<div class="feature-box fbox-center fbox-outline fbox-rounded">
+										<div class="fbox-icon">
+											<a href="#"><i class="uil uil-mobile-android"></i></a>
+										</div>
+										<div class="fbox-content">
+											<h3>Mobile Apps</h3>
+											<p>Native and cross-platform mobile applications for iOS and Android platforms.</p>
+										</div>
+									</div>
+								</div>
+
+								<div class="col-sm-6 col-lg-4">
+									<div class="feature-box fbox-center fbox-outline fbox-rounded">
+										<div class="fbox-icon">
+											<a href="#"><i class="uil uil-cloud-database-tree"></i></a>
+										</div>
+										<div class="fbox-content">
+											<h3>Cloud Solutions</h3>
+											<p>Scalable cloud architecture and hosting to keep your business running at peak performance.</p>
+										</div>
+									</div>
+								</div>
+
+								<div class="col-sm-6 col-lg-4">
+									<div class="feature-box fbox-center fbox-outline fbox-rounded">
+										<div class="fbox-icon">
+											<a href="#"><i class="uil uil-headphones"></i></a>
+										</div>
+										<div class="fbox-content">
+											<h3>Support &amp; Maintenance</h3>
+											<p>Ongoing technical support to keep your systems running smoothly around the clock.</p>
+										</div>
+									</div>
+								</div>
+
+							</div>
+
+						</div>
+					</section><!-- #section-services end -->
+
+					<!-- ============================================
+				     Portfolio Section
+				     ============================================ -->
+					<section id="section-portfolio" class="page-section">
+						<div class="container">
+
+							<div class="heading-block text-center">
+								<h2>Our <span>Portfolio</span></h2>
+								<span>Recent work we're proud to show off</span>
+							</div>
+
+							<div class="row g-4">
+
+								<div class="col-sm-6 col-lg-4">
+									<div class="portfolio-item">
+										<div class="portfolio-image rounded-custom overflow-hidden">
+											<img src="images/portfolio/1.jpg" alt="Project Alpha" class="img-fluid portfolio-img">
+											<div class="portfolio-overlay">
+												<a href="images/portfolio/1.jpg" class="left-icon" data-lightbox="image"><i class="uil uil-focus"></i></a>
+											</div>
+										</div>
+										<div class="portfolio-desc pt-3">
+											<h3 class="mb-1"><a href="#">Project Alpha</a></h3>
+											<span class="text-muted small">Web Design</span>
+										</div>
+									</div>
+								</div>
+
+								<div class="col-sm-6 col-lg-4">
+									<div class="portfolio-item">
+										<div class="portfolio-image rounded-custom overflow-hidden">
+											<img src="images/portfolio/2.jpg" alt="Project Beta" class="img-fluid portfolio-img">
+											<div class="portfolio-overlay">
+												<a href="images/portfolio/2.jpg" class="left-icon" data-lightbox="image"><i class="uil uil-focus"></i></a>
+											</div>
+										</div>
+										<div class="portfolio-desc pt-3">
+											<h3 class="mb-1"><a href="#">Project Beta</a></h3>
+											<span class="text-muted small">Development</span>
+										</div>
+									</div>
+								</div>
+
+								<div class="col-sm-6 col-lg-4">
+									<div class="portfolio-item">
+										<div class="portfolio-image rounded-custom overflow-hidden">
+											<img src="images/portfolio/3.jpg" alt="Project Gamma" class="img-fluid portfolio-img">
+											<div class="portfolio-overlay">
+												<a href="images/portfolio/3.jpg" class="left-icon" data-lightbox="image"><i class="uil uil-focus"></i></a>
+											</div>
+										</div>
+										<div class="portfolio-desc pt-3">
+											<h3 class="mb-1"><a href="#">Project Gamma</a></h3>
+											<span class="text-muted small">Branding</span>
+										</div>
+									</div>
+								</div>
+
+							</div>
+
+						</div>
+					</section><!-- #section-portfolio end -->
+
+					<!-- ============================================
+				     Testimonials Section
+				     ============================================ -->
+					<section id="section-testimonials" class="page-section section-dark-bg">
+						<div class="container">
+
+							<div class="heading-block text-center">
+								<h2>Client <span>Testimonials</span></h2>
+								<span>What our clients say about working with us</span>
+							</div>
+
+							<div class="row justify-content-center col-mb-50">
+
+								<div class="col-md-6 col-lg-4">
+									<div class="testimonial-card">
+										<p class="testi-quote">"Working with this team was an absolute pleasure. They delivered a stunning website that exceeded every expectation."</p>
+										<div class="testi-author mt-4">
+											<h5>Sarah Johnson</h5>
+											<span>CEO, TechStart Inc.</span>
+										</div>
+									</div>
+								</div>
+
+								<div class="col-md-6 col-lg-4">
+									<div class="testimonial-card">
+										<p class="testi-quote">"Incredible attention to detail. Our conversion rate improved by 40% after the redesign — results speak for themselves."</p>
+										<div class="testi-author mt-4">
+											<h5>Michael Chen</h5>
+											<span>Founder, GrowthLab</span>
+										</div>
+									</div>
+								</div>
+
+								<div class="col-md-6 col-lg-4">
+									<div class="testimonial-card">
+										<p class="testi-quote">"Fast, professional, and reliable. They solved our complex technical challenges with elegant simplicity."</p>
+										<div class="testi-author mt-4">
+											<h5>Emily Rodriguez</h5>
+											<span>Director, Creative Agency</span>
+										</div>
+									</div>
+								</div>
+
+							</div>
+
+						</div>
+					</section><!-- #section-testimonials end -->
+
+					<!-- ============================================
+				     Contact Section
+				     ============================================ -->
+					<section id="section-contact" class="page-section">
+						<div class="container">
+
+							<div class="heading-block text-center">
+								<h2>Get In <span>Touch</span></h2>
+								<span>We'd love to hear from you — let's start a conversation</span>
+							</div>
+
+							<div class="row justify-content-center">
+								<div class="col-lg-8">
+
+									<form id="template-contactform" name="template-contactform" class="nobottommargin" action="#" method="post" novalidate>
+
+										<div class="form-process">
+											<div class="css3-spinner">
+												<div class="css3-spinner-double-bounce1"></div>
+												<div class="css3-spinner-double-bounce2"></div>
+											</div>
+										</div>
+
+										<div class="row g-3">
+											<div class="col-sm-6">
+												<label class="form-label" for="cf-name">Full Name <small>*</small></label>
+												<input type="text" id="cf-name" name="cf-name" class="form-control" placeholder="Your Name" required autocomplete="name">
+											</div>
+											<div class="col-sm-6">
+												<label class="form-label" for="cf-email">Email Address <small>*</small></label>
+												<input type="email" id="cf-email" name="cf-email" class="form-control" placeholder="your@email.com" required autocomplete="email">
+											</div>
+											<div class="col-12">
+												<label class="form-label" for="cf-subject">Subject</label>
+												<input type="text" id="cf-subject" name="cf-subject" class="form-control" placeholder="How can we help?">
+											</div>
+											<div class="col-12">
+												<label class="form-label" for="cf-message">Message <small>*</small></label>
+												<textarea id="cf-message" name="cf-message" class="form-control" rows="6" placeholder="Your message..." required></textarea>
+											</div>
+											<div class="col-12">
+												<button type="submit" id="cf-submit" class="btn btn-primary btn-submit-contact">
+													Send Message <i class="uil uil-message ms-1"></i>
+												</button>
+											</div>
+										</div>
+
+									</form>
+
+								</div>
+							</div>
+
+						</div>
+					</section><!-- #section-contact end -->
+
+				</div>
+			</section><!-- #content end -->
+
+			<!-- Footer
+		============================================= -->
+			<footer id="footer" class="dark">
+				<div id="copyrights">
+					<div class="container">
+						<div class="row justify-content-between align-items-center">
+							<div class="col-md-6 text-center text-md-start">
+								<p class="mb-0">Copyrights &copy; <span id="footer-year"></span> All Rights Reserved by <strong>MySite</strong>.<br>
+									<a href="#" class="text-white-50">Privacy Policy</a>
+								</p>
+							</div>
+							<div class="col-md-6 text-center text-md-end mt-3 mt-md-0">
+								<a href="#" class="social-icon si-small si-github" aria-label="GitHub"><i class="uil uil-github-alt"></i><i class="uil uil-github-alt"></i></a>
+								<a href="#" class="social-icon si-small si-twitter ms-2" aria-label="Twitter"><i class="uil uil-twitter-alt"></i><i class="uil uil-twitter-alt"></i></a>
+								<a href="#" class="social-icon si-small si-linkedin ms-2" aria-label="LinkedIn"><i class="uil uil-linkedin-alt"></i><i class="uil uil-linkedin-alt"></i></a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</footer><!-- #footer end -->
+
+		</div><!-- #wrapper end -->
+
+		<!-- Go To Top
+	============================================= -->
+		<div id="gotoTop" class="uil uil-angle-up"></div>
+
+		<!-- Canvas JS (vendor)
+	============================================= -->
+		<script src="vendor/js/plugins.min.js"></script>
+		<script src="vendor/js/functions.bundle.js"></script>
+
+		<!-- Custom JS
+	============================================= -->
+		<script src="js/default.js"></script>
+
+	</body>
+
+</html>

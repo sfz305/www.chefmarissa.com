@@ -1,0 +1,719 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en-US">
+
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8">
+		<meta http-equiv="x-ua-compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="description" content="Chef Marissa Mueller — Traveling Private Chef | Bespoke Culinary Experiences | Miami Beach, FL">
+
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+
+		<!-- Canvas vendor CSS (populated via: npm run setup) -->
+		<link rel="stylesheet" href="vendor/style.css">
+		<link rel="stylesheet" href="vendor/css/font-icons.css">
+		<link rel="stylesheet" href="vendor/css/swiper.css">
+
+		<title>Chef Marissa — Demo 1: Elegant</title>
+
+		<style>
+			/* ── Design tokens ─────────────────────────────────────────── */
+			:root {
+				--cnvs-themecolor: #c9a96e;
+				--cnvs-themecolor-rgb: 201, 169, 110;
+				--gold: #c9a96e;
+				--dark: #110e0a;
+				--mid: #2a2018;
+				--cream: #f8f0e3;
+				--text: #4a3f32;
+				--hf: 'Cormorant Garamond', Georgia, serif;
+				--bf: 'Lato', sans-serif;
+			}
+
+			/* ── Base ── */
+			body {
+				font-family: var(--bf);
+				color: var(--text);
+			}
+
+			h1,
+			h2,
+			h3,
+			h4,
+			h5 {
+				font-family: var(--hf);
+			}
+
+			/* ── Logo ── */
+			.logo-script {
+				font-family: var(--hf);
+				font-size: 1.5rem;
+				font-weight: 300;
+				font-style: italic;
+				color: #fff;
+				letter-spacing: 2px;
+				text-decoration: none;
+			}
+
+			#header.sticky-header .logo-script {
+				color: var(--dark);
+			}
+
+			/* ── Hero ── */
+			.hero-overlay {
+				position: absolute;
+				inset: 0;
+				background: linear-gradient(110deg, rgba(17, 14, 10, .82) 45%, rgba(17, 14, 10, .35) 100%);
+				z-index: 1;
+			}
+
+			.hero-text {
+				position: relative;
+				z-index: 5;
+			}
+
+			.hero-eyebrow {
+				font-size: .8125rem;
+				letter-spacing: 4px;
+				text-transform: uppercase;
+				color: rgba(255, 255, 255, .55);
+				font-family: var(--bf);
+			}
+
+			.hero-eyebrow .divider {
+				display: inline-block;
+				width: 50px;
+				height: 1px;
+				background: var(--gold);
+				vertical-align: middle;
+				margin: 0 14px;
+			}
+
+			.hero-h1 {
+				font-size: clamp(2.75rem, 6vw, 5.5rem);
+				font-weight: 300;
+				font-style: italic;
+				line-height: 1.12;
+				color: #fff;
+				letter-spacing: 1px;
+			}
+
+			.hero-h1 strong {
+				font-weight: 600;
+				font-style: normal;
+				color: var(--gold);
+			}
+
+			.hero-lead {
+				color: rgba(255, 255, 255, .6);
+				font-weight: 300;
+				max-width: 460px;
+				line-height: 1.8;
+			}
+
+			/* ── Buttons ── */
+			.btn-gold {
+				display: inline-block;
+				padding: 13px 40px;
+				border: 1px solid var(--gold);
+				color: var(--dark);
+				background: var(--gold);
+				font-family: var(--bf);
+				font-size: .8125rem;
+				text-transform: uppercase;
+				letter-spacing: 3px;
+				text-decoration: none;
+				transition: all .3s;
+			}
+
+			.btn-gold:hover {
+				background: transparent;
+				color: var(--gold);
+			}
+
+			.btn-outline {
+				display: inline-block;
+				padding: 13px 40px;
+				border: 1px solid rgba(255, 255, 255, .45);
+				color: #fff;
+				font-family: var(--bf);
+				font-size: .8125rem;
+				text-transform: uppercase;
+				letter-spacing: 3px;
+				text-decoration: none;
+				transition: all .3s;
+			}
+
+			.btn-outline:hover {
+				border-color: var(--gold);
+				color: var(--gold);
+			}
+
+			/* ── Section globals ── */
+			.page-section {
+				padding: 100px 0;
+			}
+
+			@media(max-width:767.98px) {
+				.page-section {
+					padding: 70px 0;
+				}
+			}
+
+			.sec-label {
+				display: block;
+				font-size: .75rem;
+				text-transform: uppercase;
+				letter-spacing: 4px;
+				color: var(--gold);
+				margin-bottom: 10px;
+				font-family: var(--bf);
+			}
+
+			.sec-title {
+				font-size: clamp(2rem, 4vw, 3.25rem);
+				font-weight: 300;
+				font-style: italic;
+				color: var(--dark);
+				line-height: 1.15;
+			}
+
+			.dark .sec-title {
+				color: #fff;
+			}
+
+			.gold-rule {
+				display: block;
+				width: 50px;
+				height: 2px;
+				background: var(--gold);
+				margin: 18px 0 0;
+			}
+
+			.gold-rule.mx-auto {
+				margin-left: auto;
+				margin-right: auto;
+			}
+
+			/* ── About ── */
+			#section-about {
+				background: var(--cream);
+			}
+
+			.portrait-wrap {
+				position: relative;
+			}
+
+			.portrait-wrap::before {
+				content: '';
+				position: absolute;
+				top: -16px;
+				left: -16px;
+				right: 16px;
+				bottom: 16px;
+				border: 1px solid var(--gold);
+				z-index: 0;
+			}
+
+			.portrait-wrap img {
+				position: relative;
+				z-index: 1;
+				width: 100%;
+				height: 520px;
+				object-fit: cover;
+				object-position: center top;
+				display: block;
+			}
+
+			@media(max-width:767.98px) {
+				.portrait-wrap::before {
+					display: none;
+				}
+
+				.portrait-wrap img {
+					height: 350px;
+				}
+			}
+
+			.stat-num {
+				font-family: var(--hf);
+				font-size: 2.75rem;
+				font-weight: 300;
+				color: var(--gold);
+				line-height: 1;
+			}
+
+			.stat-label {
+				font-size: .75rem;
+				text-transform: uppercase;
+				letter-spacing: 2px;
+				color: var(--text);
+				font-family: var(--bf);
+			}
+
+			/* ── Services ── */
+			#section-services {
+				background: #fff;
+			}
+
+			.svc-card {
+				border: 1px solid rgba(201, 169, 110, .28);
+				padding: 48px 32px;
+				text-align: center;
+				height: 100%;
+				transition: border-color .3s, box-shadow .3s;
+			}
+
+			.svc-card:hover {
+				border-color: var(--gold);
+				box-shadow: 0 8px 40px rgba(201, 169, 110, .13);
+			}
+
+			.svc-icon {
+				font-size: 2.25rem;
+				color: var(--gold);
+				margin-bottom: 20px;
+				display: block;
+			}
+
+			.svc-card h3 {
+				font-size: 1.5rem;
+				font-weight: 400;
+				color: var(--dark);
+				margin-bottom: 14px;
+			}
+
+			.svc-card p {
+				font-size: .9375rem;
+				line-height: 1.8;
+				color: var(--text);
+			}
+
+			/* ── Gallery ── */
+			#section-gallery {
+				background: var(--dark);
+			}
+
+			.gallery-cell {
+				overflow: hidden;
+			}
+
+			.gallery-cell img {
+				width: 100%;
+				height: 230px;
+				object-fit: cover;
+				display: block;
+				transition: transform .55s ease;
+			}
+
+			.gallery-cell:hover img {
+				transform: scale(1.07);
+			}
+
+			/* ── Testimonials ── */
+			#section-testimonials {
+				background: var(--mid);
+			}
+
+			.testi-card {
+				padding: 36px 28px;
+			}
+
+			.testi-mark {
+				font-family: var(--hf);
+				font-size: 5rem;
+				line-height: 1;
+				color: var(--gold);
+				opacity: .55;
+				display: block;
+				margin-bottom: 8px;
+			}
+
+			.testi-body {
+				font-family: var(--hf);
+				font-style: italic;
+				font-size: 1.125rem;
+				color: rgba(255, 255, 255, .83);
+				line-height: 1.8;
+			}
+
+			.testi-name {
+				font-size: .875rem;
+				letter-spacing: 2px;
+				text-transform: uppercase;
+				color: var(--gold);
+				font-family: var(--bf);
+			}
+
+			.testi-loc {
+				font-size: .8125rem;
+				color: rgba(255, 255, 255, .38);
+				font-family: var(--bf);
+			}
+
+			/* ── Contact ── */
+			#section-contact {
+				background: var(--cream);
+			}
+
+			#section-contact .form-control {
+				background: #fff;
+				border: 1px solid rgba(201, 169, 110, .35);
+				border-radius: 0;
+				padding: 14px 16px;
+				font-family: var(--bf);
+				font-size: .9375rem;
+			}
+
+			#section-contact .form-control:focus {
+				border-color: var(--gold);
+				box-shadow: none;
+			}
+
+			/* ── Footer ── */
+			#footer {
+				background: var(--dark) !important;
+			}
+
+			#footer #copyrights {
+				border-top: 1px solid rgba(255, 255, 255, .06);
+			}
+
+			.footer-brand {
+				font-family: var(--hf);
+				font-size: 1.375rem;
+				font-style: italic;
+				color: var(--gold);
+			}
+		</style>
+	</head>
+
+	<body class="stretched">
+		<div id="wrapper">
+
+			<!-- ══════════════════════════ HEADER ══════════════════════════ -->
+			<header id="header" class="transparent-header dark full-header">
+				<div id="header-wrap">
+					<div class="container">
+						<div class="header-row">
+							<div id="logo">
+								<a href="#home"><span class="logo-script">Chef Marissa</span></a>
+							</div>
+							<div class="primary-menu-trigger">
+								<button class="cnvs-hamburger" type="button" title="Open Mobile Menu">
+									<span class="cnvs-hamburger-box"><span class="cnvs-hamburger-inner"></span></span>
+								</button>
+							</div>
+							<nav class="primary-menu">
+								<ul class="menu-container one-page-menu" data-easing="easeInOutExpo" data-speed="1250" data-offset="70">
+									<li class="menu-item"><a class="menu-link" href="#" data-href="#home">
+											<div>Home</div>
+										</a></li>
+									<li class="menu-item"><a class="menu-link" href="#" data-href="#section-about">
+											<div>About</div>
+										</a></li>
+									<li class="menu-item"><a class="menu-link" href="#" data-href="#section-services">
+											<div>Services</div>
+										</a></li>
+									<li class="menu-item"><a class="menu-link" href="#" data-href="#section-gallery">
+											<div>Gallery</div>
+										</a></li>
+									<li class="menu-item"><a class="menu-link" href="#" data-href="#section-testimonials">
+											<div>Testimonials</div>
+										</a></li>
+									<li class="menu-item"><a class="menu-link" href="#" data-href="#section-contact">
+											<div>Contact</div>
+										</a></li>
+								</ul>
+							</nav>
+						</div>
+					</div>
+				</div>
+				<div class="header-wrap-clone"></div>
+			</header>
+
+			<!-- ══════════════════════════ HERO ══════════════════════════ -->
+			<div id="home" style="position:absolute;top:0;left:0;width:100%;height:200px;z-index:-2;"></div>
+			<section id="slider" class="slider-element min-vh-100 include-header dark" style="background-image:url('images/hero-elegant.jpg'); background-size:cover; background-position:center;">
+				<div class="hero-overlay"></div>
+				<div class="slider-inner">
+					<div class="vertical-middle hero-text">
+						<div class="container">
+							<div style="max-width:640px;">
+								<p class="hero-eyebrow mb-4">
+									<span class="divider"></span>Miami Beach, Florida<span class="divider"></span>
+								</p>
+								<h1 class="hero-h1">Private Chef.<br><strong>Personal</strong> Experience.</h1>
+								<p class="hero-lead mt-4 mb-5">
+									Bespoke culinary journeys crafted for discerning clients — in your home, aboard your yacht, or wherever life takes you.
+								</p>
+								<div class="d-flex flex-wrap gap-3">
+									<a href="#section-contact" class="btn-gold">Book a Consultation</a>
+									<a href="#section-services" class="btn-outline">Explore Services</a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<!-- ══════════════════════════ CONTENT ══════════════════════════ -->
+			<section id="content">
+				<div class="content-wrap p-0">
+
+					<!-- ── ABOUT ── -->
+					<section id="section-about" class="page-section">
+						<div class="container">
+							<div class="row align-items-center g-5">
+
+								<div class="col-lg-5">
+									<div class="portrait-wrap ms-lg-3">
+										<img src="images/chef-portrait.jpg" alt="Chef Marissa Mueller" onerror="this.src='https://placehold.co/600x800/1a1208/c9a96e?text=Chef+Marissa'">
+									</div>
+								</div>
+
+								<div class="col-lg-7 ps-lg-5">
+									<span class="sec-label">Who I Am</span>
+									<h2 class="sec-title">A Passion for <em>Flavour,</em><br>A Gift for Detail.</h2>
+									<span class="gold-rule mb-5"></span>
+									<p class="mb-4" style="line-height:1.85;">
+										Chef Marissa Mueller is a traveling private chef based in Miami Beach, FL — known for curating unforgettable dining experiences that blend artistry with precision. Her philosophy: every meal is a personal act of hospitality, whether prepared for two or twenty.
+									</p>
+									<p class="mb-5" style="line-height:1.85;">
+										From multi-day culinary residencies at private estates to recurring weekly service and exclusive event catering, Marissa delivers with discretion, creativity, and an unwavering commitment to excellence.
+									</p>
+									<div class="row mb-5">
+										<div class="col-6">
+											<div class="stat-num">10+</div>
+											<div class="stat-label mt-1">Years Experience</div>
+										</div>
+										<div class="col-6">
+											<div class="stat-num">200+</div>
+											<div class="stat-label mt-1">Events Catered</div>
+										</div>
+									</div>
+									<a href="#section-contact" class="btn-gold">Request a Booking</a>
+								</div>
+
+							</div>
+						</div>
+					</section>
+
+					<!-- ── SERVICES ── -->
+					<section id="section-services" class="page-section">
+						<div class="container">
+							<div class="text-center mb-5">
+								<span class="sec-label">What I Offer</span>
+								<h2 class="sec-title">Curated Culinary Services</h2>
+								<span class="gold-rule mx-auto mt-3"></span>
+							</div>
+							<div class="row g-4 justify-content-center">
+								<div class="col-md-6 col-lg-4">
+									<div class="svc-card">
+										<i class="uil uil-plane svc-icon"></i>
+										<h3>Traveling Private Chef</h3>
+										<p>Available anywhere in the US and internationally. Ideal for vacation homes, yachts, private retreats, and destination events requiring premium culinary leadership.</p>
+									</div>
+								</div>
+								<div class="col-md-6 col-lg-4">
+									<div class="svc-card">
+										<i class="uil uil-home svc-icon"></i>
+										<h3>In-Home Personal Chef</h3>
+										<p>Weekly or recurring household meal service tailored to your dietary preferences and lifestyle — fresh, house-made food prepared, plated, and cleaned up seamlessly.</p>
+									</div>
+								</div>
+								<div class="col-md-6 col-lg-4">
+									<div class="svc-card">
+										<i class="uil uil-glass-martini svc-icon"></i>
+										<h3>Private Event Catering</h3>
+										<p>From intimate dinner parties to exclusive corporate gatherings, custom menus crafted to transform your event into a sensory occasion guests will long remember.</p>
+									</div>
+								</div>
+							</div>
+						</div>
+					</section>
+
+					<!-- ── GALLERY ── -->
+					<section id="section-gallery" class="page-section">
+						<div class="container">
+							<div class="text-center mb-5">
+								<span class="sec-label" style="color:rgba(255,255,255,.45);">Portfolio</span>
+								<h2 class="sec-title">A Taste of the Work</h2>
+								<span class="gold-rule mx-auto mt-3"></span>
+							</div>
+							<div class="row g-2">
+								<div class="col-6 col-lg-4 gallery-cell">
+									<img src="images/gallery/dish-1.jpg" alt="Dish 1" onerror="this.src='https://placehold.co/800x600/2a2018/c9a96e?text=Dish+1'">
+								</div>
+								<div class="col-6 col-lg-4 gallery-cell">
+									<img src="images/gallery/dish-2.jpg" alt="Dish 2" onerror="this.src='https://placehold.co/800x600/2a2018/c9a96e?text=Dish+2'">
+								</div>
+								<div class="col-6 col-lg-4 gallery-cell">
+									<img src="images/gallery/dish-3.jpg" alt="Dish 3" onerror="this.src='https://placehold.co/800x600/2a2018/c9a96e?text=Dish+3'">
+								</div>
+								<div class="col-6 col-lg-4 gallery-cell">
+									<img src="images/gallery/dish-4.jpg" alt="Dish 4" onerror="this.src='https://placehold.co/800x600/2a2018/c9a96e?text=Dish+4'">
+								</div>
+								<div class="col-6 col-lg-4 gallery-cell">
+									<img src="images/gallery/dish-5.jpg" alt="Dish 5" onerror="this.src='https://placehold.co/800x600/2a2018/c9a96e?text=Dish+5'">
+								</div>
+								<div class="col-6 col-lg-4 gallery-cell">
+									<img src="images/gallery/dish-6.jpg" alt="Dish 6" onerror="this.src='https://placehold.co/800x600/2a2018/c9a96e?text=Dish+6'">
+								</div>
+							</div>
+						</div>
+					</section>
+
+					<!-- ── TESTIMONIALS ── -->
+					<section id="section-testimonials" class="page-section">
+						<div class="container">
+							<div class="text-center mb-5">
+								<span class="sec-label" style="color:rgba(255,255,255,.4);">Client Words</span>
+								<h2 class="sec-title">What They Say</h2>
+								<span class="gold-rule mx-auto mt-3"></span>
+							</div>
+							<div class="row g-4 justify-content-center">
+								<div class="col-md-6 col-lg-4">
+									<div class="testi-card">
+										<span class="testi-mark">&ldquo;</span>
+										<p class="testi-body">Marissa delivered a seven-course tasting menu at our home in the Keys that rivaled any Michelin-starred restaurant. Absolute perfection from concept to plate.</p>
+										<div class="mt-4">
+											<div class="testi-name">Jonathan &amp; Claire H.</div>
+											<div class="testi-loc">Miami Beach, FL</div>
+										</div>
+									</div>
+								</div>
+								<div class="col-md-6 col-lg-4">
+									<div class="testi-card">
+										<span class="testi-mark">&ldquo;</span>
+										<p class="testi-body">We hired Chef Marissa for a two-week stay in Aspen. Her ability to adapt to our dietary needs while producing stunning, flavourful meals every day was remarkable.</p>
+										<div class="mt-4">
+											<div class="testi-name">The Whitmore Family</div>
+											<div class="testi-loc">New York, NY</div>
+										</div>
+									</div>
+								</div>
+								<div class="col-md-6 col-lg-4">
+									<div class="testi-card">
+										<span class="testi-mark">&ldquo;</span>
+										<p class="testi-body">The dinner party Marissa catered was the talk of our circle for months. Sophisticated, personal, and executed flawlessly — she is truly a rare talent.</p>
+										<div class="mt-4">
+											<div class="testi-name">Serena V.</div>
+											<div class="testi-loc">South Beach, FL</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</section>
+
+					<!-- ── CONTACT ── -->
+					<section id="section-contact" class="page-section">
+						<div class="container">
+							<div class="row justify-content-center mb-5">
+								<div class="col-lg-7 text-center">
+									<span class="sec-label">Get In Touch</span>
+									<h2 class="sec-title">Reserve Your Experience</h2>
+									<span class="gold-rule mx-auto mt-3 mb-4"></span>
+									<p>Available for inquiries <strong>always</strong>. Whether planning a week-long culinary stay or an intimate dinner for six — reach out and let's create something extraordinary.</p>
+								</div>
+							</div>
+							<div class="row justify-content-center">
+								<div class="col-lg-7">
+									<form id="contact-form-1" novalidate>
+										<div class="row g-3">
+											<div class="col-sm-6">
+												<input type="text" class="form-control" placeholder="Your Name" required autocomplete="name">
+											</div>
+											<div class="col-sm-6">
+												<input type="email" class="form-control" placeholder="Email Address" required autocomplete="email">
+											</div>
+											<div class="col-sm-6">
+												<input type="tel" class="form-control" placeholder="Phone Number" autocomplete="tel">
+											</div>
+											<div class="col-sm-6">
+												<select class="form-control">
+													<option value="">Service of Interest</option>
+													<option>Traveling Private Chef</option>
+													<option>In-Home Personal Chef</option>
+													<option>Private Event Catering</option>
+												</select>
+											</div>
+											<div class="col-12">
+												<textarea class="form-control" rows="5" placeholder="Tell me about your event or culinary needs..." required></textarea>
+											</div>
+											<div class="col-12 text-center mt-2">
+												<button type="submit" class="btn-gold" style="cursor:pointer; font-family:var(--bf);">Send Enquiry</button>
+											</div>
+										</div>
+									</form>
+									<div id="contact-feedback-1" class="mt-3 text-center" style="display:none; color: var(--gold); font-family:var(--hf); font-style:italic; font-size:1.125rem;">
+										Thank you — I will be in touch shortly.
+									</div>
+								</div>
+							</div>
+						</div>
+					</section>
+
+				</div>
+			</section>
+
+			<!-- ══════════════════════════ FOOTER ══════════════════════════ -->
+			<footer id="footer" class="dark">
+				<div id="copyrights" style="padding: 32px 0;">
+					<div class="container">
+						<div class="row justify-content-between align-items-center">
+							<div class="col-md-6 text-center text-md-start">
+								<div class="footer-brand">Chef Marissa</div>
+								<p class="mb-0 mt-1" style="font-size:.8125rem; color:rgba(255,255,255,.35);">
+									Traveling Private Chef &middot; Miami Beach, FL &middot; Always Open for Enquiries
+								</p>
+							</div>
+							<div class="col-md-6 text-center text-md-end mt-3 mt-md-0">
+								<a href="https://www.instagram.com/chefmarissa" target="_blank" rel="noopener noreferrer" class="social-icon si-small si-instagram me-2" aria-label="Instagram on @chefmarissa">
+									<i class="uil uil-instagram"></i><i class="uil uil-instagram"></i>
+								</a>
+								<a href="https://www.facebook.com/ChefMarissa21" target="_blank" rel="noopener noreferrer" class="social-icon si-small si-facebook" aria-label="Chef Marissa on Facebook">
+									<i class="uil uil-facebook-f"></i><i class="uil uil-facebook-f"></i>
+								</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</footer>
+
+		</div><!-- #wrapper -->
+
+		<div id="gotoTop" class="uil uil-angle-up"></div>
+
+		<script src="vendor/js/plugins.min.js"></script>
+		<script src="vendor/js/functions.bundle.js"></script>
+		<script>
+			(function ()
+			{
+				'use strict';
+				var form = document.getElementById('contact-form-1');
+				var feedback = document.getElementById('contact-feedback-1');
+				if (form)
+				{
+					form.addEventListener('submit', function (e)
+					{
+						e.preventDefault();
+						var name = form.querySelector('[autocomplete="name"]').value.trim();
+						var email = form.querySelector('[autocomplete="email"]').value.trim();
+						var msg = form.querySelector('textarea').value.trim();
+						if (!name || !email || !msg) {return;}
+						form.style.display = 'none';
+						feedback.style.display = 'block';
+						// Replace this block with a real fetch() to your form endpoint
+					});
+				}
+				var yr = document.getElementById('footer-year');
+				if (yr) yr.textContent = new Date().getFullYear();
+			}());
+		</script>
+	</body>
+
+</html>

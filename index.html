@@ -2,93 +2,42 @@
 <html dir="ltr" lang="en-US">
 
 	<head>
-
 		<meta http-equiv="content-type" content="text/html; charset=utf-8">
 		<meta http-equiv="x-ua-compatible" content="IE=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<meta name="author" content="">
-		<meta name="description" content="A single-page website built on the Canvas HTML5 template framework.">
+		<meta name="description" content="Chef Marissa Mueller &mdash; Traveling Private Chef | Bespoke Culinary Experiences | Miami Beach, FL">
 
-		<!-- Google Fonts -->
 		<link rel="preconnect" href="https://fonts.googleapis.com">
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-		<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
 
-		<!-- Canvas Core CSS -->
+		<!-- Canvas vendor CSS (populated via: npm run setup) -->
 		<link rel="stylesheet" href="vendor/style.css">
 		<link rel="stylesheet" href="vendor/css/font-icons.css">
 		<link rel="stylesheet" href="vendor/css/swiper.css">
 
-		<!-- Custom Styles (compiled from css/default.scss) -->
+		<!-- Custom styles -->
 		<link rel="stylesheet" href="css/default.css">
 
-		<!-- Document Title
-	============================================= -->
-		<title>Canvas | Single Page Website</title>
-
+		<title>Chef Marissa &mdash; Traveling Private Chef | Miami Beach, FL</title>
 	</head>
 
 	<body class="stretched">
-
-		<!-- Document Wrapper
-	============================================= -->
 		<div id="wrapper">
 
-			<!-- Home anchor (required for one-page scroll menu)
-		============================================= -->
-			<div id="home" class="page-section" style="position:absolute;top:0;left:0;width:100%;height:200px;z-index:-2;"></div>
-
-			<!-- Hero Slider
-		============================================= -->
-			<section id="slider" class="slider-element slider-parallax min-vh-60 min-vh-md-100 with-header swiper_wrapper">
-				<div class="slider-inner">
-					<div class="swiper swiper-parent">
-						<div class="swiper-wrapper">
-
-							<div class="swiper-slide dark">
-								<div class="container">
-									<div class="slider-caption slider-caption-center">
-										<h2 data-animate="fadeInUp">Welcome to MySite</h2>
-										<p class="d-none d-sm-block" data-animate="fadeInUp" data-delay="200">
-											A clean, professional one-page website built on the Canvas HTML5 template framework.
-										</p>
-										<a href="#section-about" class="btn btn-light button-rounded mt-4" data-animate="fadeInUp" data-delay="400">
-											Discover More <i class="uil uil-arrow-down ms-1"></i>
-										</a>
-									</div>
-								</div>
-								<div class="swiper-slide-bg" style="background-image: url('images/hero-bg.jpg');background-position:center center;"></div>
-								<div class="video-overlay" style="background-color:rgba(0,0,0,0.45);"></div>
-							</div>
-
-						</div>
-					</div>
-				</div>
-			</section><!-- #slider end -->
-
-			<!-- Header
-		============================================= -->
-			<header id="header" class="full-header transparent-header semi-transparent">
+			<!-- ══════════════════════════ HEADER ══════════════════════════ -->
+			<header id="header" class="transparent-header dark full-header">
 				<div id="header-wrap">
 					<div class="container">
 						<div class="header-row">
-
-							<!-- Logo
-						============================================= -->
 							<div id="logo">
-								<a href="#home">
-									<span class="logo-text">MySite</span>
-								</a>
-							</div><!-- #logo end -->
-
+								<a href="#home"><span class="logo-script">Chef Marissa</span></a>
+							</div>
 							<div class="primary-menu-trigger">
 								<button class="cnvs-hamburger" type="button" title="Open Mobile Menu">
 									<span class="cnvs-hamburger-box"><span class="cnvs-hamburger-inner"></span></span>
 								</button>
 							</div>
-
-							<!-- Primary Navigation
-						============================================= -->
 							<nav class="primary-menu">
 								<ul class="menu-container one-page-menu" data-easing="easeInOutExpo" data-speed="1250" data-offset="70">
 									<li class="menu-item"><a class="menu-link" href="#" data-href="#home">
@@ -100,8 +49,8 @@
 									<li class="menu-item"><a class="menu-link" href="#" data-href="#section-services">
 											<div>Services</div>
 										</a></li>
-									<li class="menu-item"><a class="menu-link" href="#" data-href="#section-portfolio">
-											<div>Portfolio</div>
+									<li class="menu-item"><a class="menu-link" href="#" data-href="#section-gallery">
+											<div>Gallery</div>
 										</a></li>
 									<li class="menu-item"><a class="menu-link" href="#" data-href="#section-testimonials">
 											<div>Testimonials</div>
@@ -110,354 +59,273 @@
 											<div>Contact</div>
 										</a></li>
 								</ul>
-							</nav><!-- #primary-menu end -->
-
+							</nav>
 						</div>
 					</div>
 				</div>
 				<div class="header-wrap-clone"></div>
-			</header><!-- #header end -->
+			</header>
 
-			<!-- Content
-		============================================= -->
-			<section id="content">
-				<div class="content-wrap p-0">
-
-					<!-- ============================================
-				     About Section
-				     ============================================ -->
-					<section id="section-about" class="page-section">
+			<!-- ══════════════════════════ HERO ══════════════════════════ -->
+			<div id="home" style="position:absolute;top:0;left:0;width:100%;height:200px;z-index:-2;"></div>
+			<section id="slider" class="slider-element min-vh-100 include-header dark" style="background-image:url('images/chef-marissa-hero.jpg'); background-size:cover; background-position:center;">
+				<div class="hero-overlay"></div>
+				<div class="slider-inner">
+					<div class="vertical-middle hero-text">
 						<div class="container">
-
-							<div class="heading-block text-center">
-								<h2>About <span>Us</span></h2>
-								<span>Who we are and what drives us forward</span>
-							</div>
-
-							<div class="row align-items-center col-mb-50">
-								<div class="col-lg-6">
-									<img src="images/about.jpg" alt="About Us" class="img-fluid rounded-custom shadow-sm">
-								</div>
-								<div class="col-lg-6">
-									<h3 class="mb-3">We build beautiful digital experiences.</h3>
-									<p class="mb-3 lead">We are a creative team passionate about crafting high-quality websites and digital solutions that help businesses grow and connect with their audience.</p>
-									<p>Our approach combines modern design principles with proven development practices to deliver results that are both visually stunning and technically sound.</p>
-
-									<div class="row mt-5">
-										<div class="col-6">
-											<div class="counter d-flex flex-column">
-												<h2 class="counter-value"><span data-from="0" data-to="150" data-refresh-interval="50" data-speed="2000" data-ease="easeOutCubic">0</span>+</h2>
-												<span class="counter-label">Projects Completed</span>
-											</div>
-										</div>
-										<div class="col-6">
-											<div class="counter d-flex flex-column">
-												<h2 class="counter-value"><span data-from="0" data-to="98" data-refresh-interval="50" data-speed="2000" data-ease="easeOutCubic">0</span>%</h2>
-												<span class="counter-label">Client Satisfaction</span>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-
-						</div>
-					</section><!-- #section-about end -->
-
-					<!-- ============================================
-				     Services Section
-				     ============================================ -->
-					<section id="section-services" class="page-section bg-section-alt">
-						<div class="container">
-
-							<div class="heading-block text-center">
-								<h2>Our <span>Services</span></h2>
-								<span>Everything you need to grow your digital presence</span>
-							</div>
-
-							<div class="row col-mb-50 justify-content-center">
-
-								<div class="col-sm-6 col-lg-4">
-									<div class="feature-box fbox-center fbox-outline fbox-rounded">
-										<div class="fbox-icon">
-											<a href="#"><i class="uil uil-vector-square"></i></a>
-										</div>
-										<div class="fbox-content">
-											<h3>Web Design</h3>
-											<p>Beautiful responsive designs that captivate your audience and reflect your brand identity.</p>
-										</div>
-									</div>
-								</div>
-
-								<div class="col-sm-6 col-lg-4">
-									<div class="feature-box fbox-center fbox-outline fbox-rounded">
-										<div class="fbox-icon">
-											<a href="#"><i class="uil uil-laptop-cloud"></i></a>
-										</div>
-										<div class="fbox-content">
-											<h3>Development</h3>
-											<p>Robust, scalable front-end and back-end solutions built with modern technologies.</p>
-										</div>
-									</div>
-								</div>
-
-								<div class="col-sm-6 col-lg-4">
-									<div class="feature-box fbox-center fbox-outline fbox-rounded">
-										<div class="fbox-icon">
-											<a href="#"><i class="uil uil-chart-line"></i></a>
-										</div>
-										<div class="fbox-content">
-											<h3>SEO &amp; Marketing</h3>
-											<p>Data-driven strategies to increase your visibility and grow your online presence.</p>
-										</div>
-									</div>
-								</div>
-
-								<div class="col-sm-6 col-lg-4">
-									<div class="feature-box fbox-center fbox-outline fbox-rounded">
-										<div class="fbox-icon">
-											<a href="#"><i class="uil uil-mobile-android"></i></a>
-										</div>
-										<div class="fbox-content">
-											<h3>Mobile Apps</h3>
-											<p>Native and cross-platform mobile applications for iOS and Android platforms.</p>
-										</div>
-									</div>
-								</div>
-
-								<div class="col-sm-6 col-lg-4">
-									<div class="feature-box fbox-center fbox-outline fbox-rounded">
-										<div class="fbox-icon">
-											<a href="#"><i class="uil uil-cloud-database-tree"></i></a>
-										</div>
-										<div class="fbox-content">
-											<h3>Cloud Solutions</h3>
-											<p>Scalable cloud architecture and hosting to keep your business running at peak performance.</p>
-										</div>
-									</div>
-								</div>
-
-								<div class="col-sm-6 col-lg-4">
-									<div class="feature-box fbox-center fbox-outline fbox-rounded">
-										<div class="fbox-icon">
-											<a href="#"><i class="uil uil-headphones"></i></a>
-										</div>
-										<div class="fbox-content">
-											<h3>Support &amp; Maintenance</h3>
-											<p>Ongoing technical support to keep your systems running smoothly around the clock.</p>
-										</div>
-									</div>
-								</div>
-
-							</div>
-
-						</div>
-					</section><!-- #section-services end -->
-
-					<!-- ============================================
-				     Portfolio Section
-				     ============================================ -->
-					<section id="section-portfolio" class="page-section">
-						<div class="container">
-
-							<div class="heading-block text-center">
-								<h2>Our <span>Portfolio</span></h2>
-								<span>Recent work we're proud to show off</span>
-							</div>
-
-							<div class="row g-4">
-
-								<div class="col-sm-6 col-lg-4">
-									<div class="portfolio-item">
-										<div class="portfolio-image rounded-custom overflow-hidden">
-											<img src="images/portfolio/1.jpg" alt="Project Alpha" class="img-fluid portfolio-img">
-											<div class="portfolio-overlay">
-												<a href="images/portfolio/1.jpg" class="left-icon" data-lightbox="image"><i class="uil uil-focus"></i></a>
-											</div>
-										</div>
-										<div class="portfolio-desc pt-3">
-											<h3 class="mb-1"><a href="#">Project Alpha</a></h3>
-											<span class="text-muted small">Web Design</span>
-										</div>
-									</div>
-								</div>
-
-								<div class="col-sm-6 col-lg-4">
-									<div class="portfolio-item">
-										<div class="portfolio-image rounded-custom overflow-hidden">
-											<img src="images/portfolio/2.jpg" alt="Project Beta" class="img-fluid portfolio-img">
-											<div class="portfolio-overlay">
-												<a href="images/portfolio/2.jpg" class="left-icon" data-lightbox="image"><i class="uil uil-focus"></i></a>
-											</div>
-										</div>
-										<div class="portfolio-desc pt-3">
-											<h3 class="mb-1"><a href="#">Project Beta</a></h3>
-											<span class="text-muted small">Development</span>
-										</div>
-									</div>
-								</div>
-
-								<div class="col-sm-6 col-lg-4">
-									<div class="portfolio-item">
-										<div class="portfolio-image rounded-custom overflow-hidden">
-											<img src="images/portfolio/3.jpg" alt="Project Gamma" class="img-fluid portfolio-img">
-											<div class="portfolio-overlay">
-												<a href="images/portfolio/3.jpg" class="left-icon" data-lightbox="image"><i class="uil uil-focus"></i></a>
-											</div>
-										</div>
-										<div class="portfolio-desc pt-3">
-											<h3 class="mb-1"><a href="#">Project Gamma</a></h3>
-											<span class="text-muted small">Branding</span>
-										</div>
-									</div>
-								</div>
-
-							</div>
-
-						</div>
-					</section><!-- #section-portfolio end -->
-
-					<!-- ============================================
-				     Testimonials Section
-				     ============================================ -->
-					<section id="section-testimonials" class="page-section section-dark-bg">
-						<div class="container">
-
-							<div class="heading-block text-center">
-								<h2>Client <span>Testimonials</span></h2>
-								<span>What our clients say about working with us</span>
-							</div>
-
-							<div class="row justify-content-center col-mb-50">
-
-								<div class="col-md-6 col-lg-4">
-									<div class="testimonial-card">
-										<p class="testi-quote">"Working with this team was an absolute pleasure. They delivered a stunning website that exceeded every expectation."</p>
-										<div class="testi-author mt-4">
-											<h5>Sarah Johnson</h5>
-											<span>CEO, TechStart Inc.</span>
-										</div>
-									</div>
-								</div>
-
-								<div class="col-md-6 col-lg-4">
-									<div class="testimonial-card">
-										<p class="testi-quote">"Incredible attention to detail. Our conversion rate improved by 40% after the redesign — results speak for themselves."</p>
-										<div class="testi-author mt-4">
-											<h5>Michael Chen</h5>
-											<span>Founder, GrowthLab</span>
-										</div>
-									</div>
-								</div>
-
-								<div class="col-md-6 col-lg-4">
-									<div class="testimonial-card">
-										<p class="testi-quote">"Fast, professional, and reliable. They solved our complex technical challenges with elegant simplicity."</p>
-										<div class="testi-author mt-4">
-											<h5>Emily Rodriguez</h5>
-											<span>Director, Creative Agency</span>
-										</div>
-									</div>
-								</div>
-
-							</div>
-
-						</div>
-					</section><!-- #section-testimonials end -->
-
-					<!-- ============================================
-				     Contact Section
-				     ============================================ -->
-					<section id="section-contact" class="page-section">
-						<div class="container">
-
-							<div class="heading-block text-center">
-								<h2>Get In <span>Touch</span></h2>
-								<span>We'd love to hear from you — let's start a conversation</span>
-							</div>
-
-							<div class="row justify-content-center">
-								<div class="col-lg-8">
-
-									<form id="template-contactform" name="template-contactform" class="nobottommargin" action="#" method="post" novalidate>
-
-										<div class="form-process">
-											<div class="css3-spinner">
-												<div class="css3-spinner-double-bounce1"></div>
-												<div class="css3-spinner-double-bounce2"></div>
-											</div>
-										</div>
-
-										<div class="row g-3">
-											<div class="col-sm-6">
-												<label class="form-label" for="cf-name">Full Name <small>*</small></label>
-												<input type="text" id="cf-name" name="cf-name" class="form-control" placeholder="Your Name" required autocomplete="name">
-											</div>
-											<div class="col-sm-6">
-												<label class="form-label" for="cf-email">Email Address <small>*</small></label>
-												<input type="email" id="cf-email" name="cf-email" class="form-control" placeholder="your@email.com" required autocomplete="email">
-											</div>
-											<div class="col-12">
-												<label class="form-label" for="cf-subject">Subject</label>
-												<input type="text" id="cf-subject" name="cf-subject" class="form-control" placeholder="How can we help?">
-											</div>
-											<div class="col-12">
-												<label class="form-label" for="cf-message">Message <small>*</small></label>
-												<textarea id="cf-message" name="cf-message" class="form-control" rows="6" placeholder="Your message..." required></textarea>
-											</div>
-											<div class="col-12">
-												<button type="submit" id="cf-submit" class="btn btn-primary btn-submit-contact">
-													Send Message <i class="uil uil-message ms-1"></i>
-												</button>
-											</div>
-										</div>
-
-									</form>
-
-								</div>
-							</div>
-
-						</div>
-					</section><!-- #section-contact end -->
-
-				</div>
-			</section><!-- #content end -->
-
-			<!-- Footer
-		============================================= -->
-			<footer id="footer" class="dark">
-				<div id="copyrights">
-					<div class="container">
-						<div class="row justify-content-between align-items-center">
-							<div class="col-md-6 text-center text-md-start">
-								<p class="mb-0">Copyrights &copy; <span id="footer-year"></span> All Rights Reserved by <strong>MySite</strong>.<br>
-									<a href="#" class="text-white-50">Privacy Policy</a>
+							<div style="max-width:640px;">
+								<p class="hero-eyebrow mb-4">
+									<span class="divider"></span>Miami Beach, Florida<span class="divider"></span>
 								</p>
-							</div>
-							<div class="col-md-6 text-center text-md-end mt-3 mt-md-0">
-								<a href="#" class="social-icon si-small si-github" aria-label="GitHub"><i class="uil uil-github-alt"></i><i class="uil uil-github-alt"></i></a>
-								<a href="#" class="social-icon si-small si-twitter ms-2" aria-label="Twitter"><i class="uil uil-twitter-alt"></i><i class="uil uil-twitter-alt"></i></a>
-								<a href="#" class="social-icon si-small si-linkedin ms-2" aria-label="LinkedIn"><i class="uil uil-linkedin-alt"></i><i class="uil uil-linkedin-alt"></i></a>
+								<h1 class="hero-h1">Private Chef.<br><strong>Personal</strong> Experience.</h1>
+								<p class="hero-lead mt-4 mb-5">
+									Bespoke culinary journeys crafted for discerning clients &mdash; in your home, aboard your yacht, or wherever life takes you.
+								</p>
+								<div class="d-flex flex-wrap gap-3">
+									<a href="#section-contact" class="btn-gold">Book a Consultation</a>
+									<a href="#section-services" class="btn-outline">Explore Services</a>
+								</div>
 							</div>
 						</div>
 					</div>
 				</div>
-			</footer><!-- #footer end -->
+			</section>
 
-		</div><!-- #wrapper end -->
+			<!-- ══════════════════════════ CONTENT ══════════════════════════ -->
+			<section id="content">
+				<div class="content-wrap p-0">
 
-		<!-- Go To Top
-	============================================= -->
+					<!-- ── ABOUT ── -->
+					<section id="section-about" class="page-section">
+						<div class="container">
+							<div class="row align-items-center g-5">
+
+								<div class="col-lg-5">
+									<div class="portrait-wrap ms-lg-3">
+										<img src="images/chef-marissa-cooking-1.jpg" alt="Chef Marissa cooking">
+									</div>
+								</div>
+
+								<div class="col-lg-7 ps-lg-5">
+									<span class="sec-label">Who I Am</span>
+									<h2 class="sec-title">A Passion for <em>Flavor,</em><br>A Gift for Detail.</h2>
+									<span class="gold-rule mb-5"></span>
+									<p class="mb-4" style="line-height:1.85;">
+										Chef Marissa Mueller is a traveling private chef based in Miami Beach, FL &mdash; known for curating unforgettable dining experiences that blend artistry with precision. Her philosophy: every meal is a personal act of hospitality, whether prepared for two or twenty.
+									</p>
+									<p class="mb-5" style="line-height:1.85;">
+										From multi-day culinary residencies at private estates to recurring weekly service and exclusive event catering, Marissa delivers with discretion, creativity, and an unwavering commitment to excellence.
+									</p>
+									<div class="row mb-5">
+										<div class="col-6">
+											<div class="stat-num">10+</div>
+											<div class="stat-label mt-1">Years Experience</div>
+										</div>
+										<div class="col-6">
+											<div class="stat-num">200+</div>
+											<div class="stat-label mt-1">Events Catered</div>
+										</div>
+									</div>
+									<a href="#section-contact" class="btn-gold">Request a Booking</a>
+								</div>
+
+							</div>
+						</div>
+					</section>
+
+					<!-- ── SERVICES ── -->
+					<section id="section-services" class="page-section">
+						<div class="container">
+							<div class="text-center mb-5">
+								<span class="sec-label">What I Offer</span>
+								<h2 class="sec-title">Curated Culinary Services</h2>
+								<span class="gold-rule mx-auto mt-3"></span>
+							</div>
+							<div class="row g-4 justify-content-center">
+								<div class="col-md-6 col-lg-4">
+									<div class="svc-card">
+										<i class="uil uil-plane svc-icon"></i>
+										<h3>Traveling Private Chef</h3>
+										<p>Available anywhere in the US and internationally. Ideal for vacation homes, yachts, private retreats, and destination events requiring premium culinary leadership.</p>
+									</div>
+								</div>
+								<div class="col-md-6 col-lg-4">
+									<div class="svc-card">
+										<i class="uil uil-home svc-icon"></i>
+										<h3>In-Home Personal Chef</h3>
+										<p>Weekly or recurring household meal service tailored to your dietary preferences and lifestyle &mdash; fresh, house-made food prepared, plated, and cleaned up seamlessly.</p>
+									</div>
+								</div>
+								<div class="col-md-6 col-lg-4">
+									<div class="svc-card">
+										<i class="uil uil-glass-martini svc-icon"></i>
+										<h3>Private Event Catering</h3>
+										<p>From intimate dinner parties to exclusive corporate gatherings, custom menus crafted to transform your event into a sensory occasion guests will long remember.</p>
+									</div>
+								</div>
+							</div>
+						</div>
+					</section>
+
+					<!-- ── GALLERY ── -->
+					<section id="section-gallery" class="page-section">
+						<div class="container">
+							<div class="text-center mb-5">
+								<span class="sec-label" style="color:rgba(255,255,255,.45);">Portfolio</span>
+								<h2 class="sec-title">A Taste of the Work</h2>
+								<span class="gold-rule mx-auto mt-3"></span>
+							</div>
+							<div class="row g-2">
+								<div class="col-6 col-lg-4 gallery-cell">
+									<img src="images/gallery/dish-1.jpg" alt="Plated dish">
+								</div>
+								<div class="col-6 col-lg-4 gallery-cell">
+									<img src="images/gallery/dish-2.jpg" alt="Plated dish">
+								</div>
+								<div class="col-6 col-lg-4 gallery-cell">
+									<img src="images/gallery/dish-3.jpg" alt="Plated dish">
+								</div>
+								<div class="col-6 col-lg-4 gallery-cell">
+									<img src="images/gallery/dish-4.jpg" alt="Plated dish">
+								</div>
+								<div class="col-6 col-lg-4 gallery-cell">
+									<img src="images/gallery/dish-5.jpg" alt="Plated dish">
+								</div>
+								<div class="col-6 col-lg-4 gallery-cell">
+									<img src="images/gallery/dish-6.jpg" alt="Plated dish">
+								</div>
+								<div class="col-6 col-lg-4 gallery-cell">
+									<img src="images/gallery/dish-7.jpg" alt="Plated dish">
+								</div>
+							</div>
+						</div>
+					</section>
+
+					<!-- ── TESTIMONIALS ── -->
+					<section id="section-testimonials" class="page-section dark">
+						<div class="container">
+							<div class="text-center mb-5">
+								<span class="sec-label" style="color:rgba(255,255,255,.4);">Client Words</span>
+								<h2 class="sec-title">What They Say</h2>
+								<span class="gold-rule mx-auto mt-3"></span>
+							</div>
+							<div class="row g-4 justify-content-center">
+								<div class="col-md-6 col-lg-4">
+									<div class="testi-card">
+										<span class="testi-mark">&ldquo;</span>
+										<p class="testi-body">Marissa delivered a seven-course tasting menu at our home in the Keys that rivaled any Michelin-starred restaurant. Absolute perfection from concept to plate.</p>
+										<div class="mt-4">
+											<div class="testi-name">Jonathan &amp; Claire H.</div>
+											<div class="testi-loc">Miami Beach, FL</div>
+										</div>
+									</div>
+								</div>
+								<div class="col-md-6 col-lg-4">
+									<div class="testi-card">
+										<span class="testi-mark">&ldquo;</span>
+										<p class="testi-body">We hired Chef Marissa for a two-week stay in Aspen. Her ability to adapt to our dietary needs while producing stunning, flavorful meals every day was remarkable.</p>
+										<div class="mt-4">
+											<div class="testi-name">The Whitmore Family</div>
+											<div class="testi-loc">New York, NY</div>
+										</div>
+									</div>
+								</div>
+								<div class="col-md-6 col-lg-4">
+									<div class="testi-card">
+										<span class="testi-mark">&ldquo;</span>
+										<p class="testi-body">The dinner party Marissa catered was the talk of our circle for months. Sophisticated, personal, and executed flawlessly &mdash; she is truly a rare talent.</p>
+										<div class="mt-4">
+											<div class="testi-name">Serena V.</div>
+											<div class="testi-loc">South Beach, FL</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</section>
+
+					<!-- ── CONTACT ── -->
+					<section id="section-contact" class="page-section">
+						<div class="container">
+							<div class="row justify-content-center mb-5">
+								<div class="col-lg-7 text-center">
+									<span class="sec-label">Get In Touch</span>
+									<h2 class="sec-title">Reserve Your Experience</h2>
+									<span class="gold-rule mx-auto mt-3 mb-4"></span>
+									<p>Available for inquiries <strong>always</strong>. Whether planning a week-long culinary stay or an intimate dinner for six &mdash; reach out and let&rsquo;s create something extraordinary.</p>
+								</div>
+							</div>
+							<div class="row justify-content-center">
+								<div class="col-lg-7">
+									<form id="contact-form-1" novalidate>
+										<div class="row g-3">
+											<div class="col-sm-6">
+												<input type="text" class="form-control" placeholder="Your Name" required autocomplete="name">
+											</div>
+											<div class="col-sm-6">
+												<input type="email" class="form-control" placeholder="Email Address" required autocomplete="email">
+											</div>
+											<div class="col-sm-6">
+												<input type="tel" class="form-control" placeholder="Phone Number" autocomplete="tel">
+											</div>
+											<div class="col-sm-6">
+												<select class="form-control">
+													<option value="">Service of Interest</option>
+													<option>Traveling Private Chef</option>
+													<option>In-Home Personal Chef</option>
+													<option>Private Event Catering</option>
+												</select>
+											</div>
+											<div class="col-12">
+												<textarea class="form-control" rows="5" placeholder="Tell me about your event or culinary needs..." required></textarea>
+											</div>
+											<div class="col-12 text-center mt-2">
+												<button type="submit" class="btn-gold" style="cursor:pointer; font-family:var(--bf);">Send Inquiry</button>
+											</div>
+										</div>
+									</form>
+									<div id="contact-feedback-1" class="mt-3 text-center" style="display:none; color: var(--gold); font-family:var(--hf); font-style:italic; font-size:1.125rem;">
+										Thank you &mdash; I will be in touch shortly.
+									</div>
+								</div>
+							</div>
+						</div>
+					</section>
+
+				</div>
+			</section>
+
+			<!-- ══════════════════════════ FOOTER ══════════════════════════ -->
+			<footer id="footer" class="dark">
+				<div id="copyrights" style="padding: 32px 0;">
+					<div class="container">
+						<div class="row justify-content-between align-items-center">
+							<div class="col-md-6 text-center text-md-start">
+								<div class="footer-brand">Chef Marissa</div>
+								<p class="mb-0 mt-1" style="font-size:.8125rem; color:rgba(255,255,255,.35);">
+									Traveling Private Chef &middot; Miami Beach, FL &middot; &copy; <span id="footer-year"></span>
+								</p>
+							</div>
+							<div class="col-md-6 text-center text-md-end mt-3 mt-md-0">
+								<a href="https://www.instagram.com/chefmarissa" target="_blank" rel="noopener noreferrer" class="social-icon si-instagram me-2" aria-label="Instagram @chefmarissa">
+									<i class="uil uil-instagram"></i><i class="uil uil-instagram"></i>
+								</a>
+								<a href="https://www.facebook.com/ChefMarissa21" target="_blank" rel="noopener noreferrer" class="social-icon si-facebook" aria-label="Chef Marissa on Facebook">
+									<i class="uil uil-facebook-f"></i><i class="uil uil-facebook-f"></i>
+								</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</footer>
+
+		</div><!-- #wrapper -->
+
 		<div id="gotoTop" class="uil uil-angle-up"></div>
 
-		<!-- Canvas JS (vendor)
-	============================================= -->
 		<script src="vendor/js/plugins.min.js"></script>
 		<script src="vendor/js/functions.bundle.js"></script>
-
-		<!-- Custom JS
-	============================================= -->
 		<script src="js/default.js"></script>
-
 	</body>
 
 </html>

@@ -1,18 +1,15 @@
 {
-	"name": "canvas-html",
+	"name": "www-chefmarissa-com",
 	"version": "1.0.0",
-	"description": "Single-page website built on the Canvas HTML5 template framework",
+	"description": "Chef Marissa Mueller — Traveling Private Chef | Single-page website built on the Canvas HTML5 template",
 	"main": "index.html",
 	"scripts": {
 		"start": "gulp",
-		"build": "gulp build",
 		"serve": "gulp serve",
-		"setup": "gulp setup",
-		"clean": "gulp clean",
 		"scss": "gulp scss",
-		"demo:1": "browser-sync start --server --startPath /demo-1-elegant.html --no-notify",
-		"demo:2": "browser-sync start --server --startPath /demo-2-fresh.html --no-notify",
-		"demo:3": "browser-sync start --server --startPath /demo-3-modern.html --no-notify"
+		"setup": "gulp setup",
+		"build": "gulp build",
+		"clean": "gulp clean"
 	},
 	"devDependencies": {
 		"autoprefixer": "^10.4.14",
@@ -28,7 +25,7 @@
 		"gulp-uglify": "^3.0.2",
 		"sass": "^1.69.0"
 	},
-	"author": "",
+	"author": "Chef Marissa Mueller <info@chefmarissa.com>",
 	"license": "ISC",
 	"repository": {
 		"type": "git",

@@ -1,0 +1,24 @@
+# canvas-html — .gitignore
+
+# ── Node ────────────────────────────────────────────────────────────────────
+node_modules/
+
+# ── Build output ─────────────────────────────────────────────────────────────
+dist/
+
+# ── Canvas vendor assets (populated locally via `npm run setup`) ─────────────
+# These files originate from a licensed ThemeForest purchase and must NOT be
+# committed to a public repository.
+vendor/
+
+# ── Compiled CSS (generated from css/default.scss) ────────────────────────
+css/default.css
+css/default.css.map
+
+# ── OS / Editor artifacts ────────────────────────────────────────────────────
+.DS_Store
+Thumbs.db
+*.log
+.env
+.env.local
+.vscode/settings.json

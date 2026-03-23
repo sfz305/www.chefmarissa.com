@@ -179,6 +179,13 @@ function buildImages()
 		.pipe(dest(PATHS.dist + 'images/'));
 }
 
+// Creates dist/.nojekyll so GitHub Pages skips Jekyll and serves vendor/ correctly
+function buildNojekyll(done)
+{
+	fs.writeFileSync(PATHS.dist + '.nojekyll', '');
+	done();
+}
+
 // ─────────────────────────────────────────────────────────────────────────────
 // 4.  DEV SERVER  (BrowserSync + watch)
 // ─────────────────────────────────────────────────────────────────────────────
@@ -245,7 +252,8 @@ exports.serve = series(compileSCSS, serve);
 exports.build = series(
 	compileSCSS,
 	parallel(buildCSS, buildJS, buildVendor, buildImages),
-	buildHTML
+	buildHTML,
+	buildNojekyll
 );
 
 // gulp clean           Remove dist/

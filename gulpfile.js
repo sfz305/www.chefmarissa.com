@@ -24,6 +24,7 @@ const cleanCSS = require('gulp-clean-css');
 const uglify = require('gulp-uglify');
 const rename = require('gulp-rename');
 const htmlmin = require('gulp-htmlmin');
+const imagemin = require('gulp-imagemin');
 const browserSync = require('browser-sync').create();
 const {series, parallel, src, dest} = require('gulp');
 const path = require('path');
@@ -167,22 +168,49 @@ function buildHTML()
 		.pipe(dest(PATHS.dist));
 }
 
-function buildVendor()
+// Minify vendor CSS (style.css, font-icons.css, swiper.css)
+function buildVendorCSS()
 {
-	return src(PATHS.vendor, {encoding: false})
+	return src('vendor/**/*.css')
+		.pipe(cleanCSS({level: {1: {specialComments: 0}, 2: {}}}))
 		.pipe(dest(PATHS.dist + 'vendor/'));
+}
+
+// Uglify the readable Canvas bundle; plugins.min.js is already minified
+function buildVendorJS()
+{
+	return src('vendor/js/functions.bundle.js')
+		.pipe(uglify())
+		.pipe(dest(PATHS.dist + 'vendor/js/'));
+}
+
+// Pass through fonts, icons, and already-minified JS as binary
+function buildVendorOther()
+{
+	return src(
+		['vendor/**/*', '!vendor/**/*.css', '!vendor/js/functions.bundle.js'],
+		{encoding: false}
+	).pipe(dest(PATHS.dist + 'vendor/'));
 }
 
 function buildImages()
 {
 	return src(PATHS.images, {encoding: false})
+		.pipe(imagemin([
+			imagemin.mozjpeg({quality: 82, progressive: true}),
+			imagemin.optipng({optimizationLevel: 5}),
+			imagemin.svgo(),
+		]))
 		.pipe(dest(PATHS.dist + 'images/'));
 }
 
 // Creates dist/.nojekyll so GitHub Pages skips Jekyll and serves vendor/ correctly
+// Creates dist/.gitignore (empty) so the root .gitignore's vendor/ exclusion is
+// not inherited by the gh-pages branch and vendor/ is included in the push
 function buildNojekyll(done)
 {
 	fs.writeFileSync(PATHS.dist + '.nojekyll', '');
+	fs.writeFileSync(PATHS.dist + '.gitignore', '');
 	done();
 }
 
@@ -251,7 +279,7 @@ exports.serve = series(compileSCSS, serve);
 // gulp build           Full production build → dist/
 exports.build = series(
 	compileSCSS,
-	parallel(buildCSS, buildJS, buildVendor, buildImages),
+	parallel(buildCSS, buildJS, buildVendorCSS, buildVendorJS, buildVendorOther, buildImages),
 	buildHTML,
 	buildNojekyll
 );

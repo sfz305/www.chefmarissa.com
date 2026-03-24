@@ -61,6 +61,37 @@
 	}
 
 	// =========================================================================
+	// Gallery carousel (Instagram-style)
+	// =========================================================================
+
+	if (typeof Swiper !== 'undefined' && qs('#gallery-carousel'))
+	{
+		new Swiper('#gallery-carousel', {
+			grabCursor: true,
+			breakpoints: {
+				0: {slidesPerView: 2, spaceBetween: 2},
+				576: {slidesPerView: 4, spaceBetween: 2},
+				992: {slidesPerView: 6, spaceBetween: 2},
+			},
+			navigation: {
+				prevEl: '.gallery-nav-prev',
+				nextEl: '.gallery-nav-next',
+			},
+		});
+	}
+
+	// Gallery lightbox (Magnific Popup)
+	if (typeof jQuery !== 'undefined' && jQuery('#gallery-carousel').length)
+	{
+		jQuery('#gallery-carousel').magnificPopup({
+			delegate: 'a[data-lightbox="gallery-item"]',
+			type: 'image',
+			gallery: {enabled: true},
+			zoom: {enabled: true, duration: 300},
+		});
+	}
+
+	// =========================================================================
 	// Footer: dynamic year
 	// =========================================================================
 
